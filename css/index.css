@@ -1,0 +1,312 @@
+/* =========================================
+                 HERO SECTION 
+========================================= */
+
+#gme-hero {
+  position: relative;
+  min-height: calc(100vh - 60px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #18489A;
+
+  /* Background Image */
+  background-image: url('../Banner.png');
+  background-size: cover;
+  background-position: 85% center;
+  background-repeat: no-repeat;
+  padding: 0;
+}
+
+/* Light Overlay - Subtle text contrast only */
+#gme-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(6,16,38,0.72) 0%,
+      rgba(6,16,38,0.55) 45%,
+      rgba(6,16,38,0.18) 100%
+    );
+
+  z-index: 1;
+}
+
+/* Hero Content Above Overlay */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.hero-left {
+  max-width: 680px;
+}
+
+.hero-heading {
+  position: relative;
+  z-index: 3;
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  line-height: 1.1;
+  font-weight: 800;
+  color: rgba(255,255,255,0.94);
+  margin-bottom: 32px;
+  letter-spacing: -1.5px;
+  max-width: 760px;
+  text-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.25),
+    0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+.hero-heading .accent {
+  color: #8BC34A;
+  display: inline-block;
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.4),
+    0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+.hero-sub {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  max-width: 700px;
+  margin-bottom: 24px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.28),
+    0 4px 12px rgba(0, 0, 0, 0.20);
+}
+
+.hero-proof {
+  color: rgba(255,255,255,0.85);
+  font-size: 0.95rem;
+  margin-bottom: 28px;
+  font-weight: 500;
+}
+
+/* Trust Badges - Global */
+.hero-trust {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 12px;
+  margin: 0 0 32px;
+  position: relative;
+  z-index: 10;
+}
+
+.hero-trust span {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(20, 40, 70, 0.95);
+  color: #fff;
+  border: 1px solid rgba(139, 195, 74, 0.5);
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+@media(max-width:992px){
+    .hero-trust{
+        flex-wrap:wrap;
+    }
+}
+
+/* Hero CTA Buttons Container */
+.hero-ctas {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+/* Primary Button */
+.hero-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #7FB74F;
+  color: white;
+  padding: 18px 36px;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(127, 183, 79, 0.25);
+}
+
+.hero-btn-primary:hover {
+  background: #8BC34A;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 34px rgba(127, 183, 79, 0.35);
+}
+
+/* Secondary Button (Outline) */
+.hero-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  color: white;
+  padding: 18px 36px;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+}
+
+.hero-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.9);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+/* Tablet & Desktop (768px and up) */
+@media (min-width: 768px) {
+  .hero-heading {
+    font-size: 3.6rem;
+  }
+
+  .hero-ctas {
+    flex-direction: row;
+  }
+}
+
+/* Mobile (768px and below) */
+@media (max-width: 768px) {
+  #gme-hero {
+    min-height: calc(100vh - 65px);
+    padding-bottom: 20px;
+  }
+
+  .hero-heading {
+    font-size: 2.2rem;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    margin-bottom: 20px;
+  }
+
+  .hero-heading .accent {
+    display: block;
+    margin-top: 8px;
+  }
+
+  .hero-sub {
+    margin-top: 20px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+
+  .hero-content {
+    padding: 40px 16px;
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .hero-btn-primary,
+  .hero-btn-outline {
+    width: 100%;
+    padding: 16px 24px;
+    text-align: center;
+    border-radius: 12px;
+    font-size: 0.95rem;
+  }
+
+  .hero-btn-primary {
+    padding: 18px 24px;
+  }
+
+  .hero-btn-outline {
+    border: 1.5px solid rgba(255, 255, 255, 0.6);
+  }
+}
+
+/* Small Mobile (480px and below) */
+@media (max-width: 480px) {
+  #gme-hero {
+    min-height: calc(100vh - 65px);
+  }
+
+  .hero-heading {
+    font-size: 1.75rem;
+    line-height: 1.25;
+    letter-spacing: 0;
+    margin-bottom: 16px;
+  }
+
+  .hero-sub {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+  .hero-content {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1280px;
+
+  margin: 0 auto;
+
+  padding: 60px 32px;
+}
+
+  .hero-btn-primary,
+  .hero-btn-outline {
+    padding: 14px 20px;
+    font-size: 0.9rem;
+    border-radius: 10px;
+  }
+  .hero-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  margin: 16px 0 24px;
+}
+
+.hero-trust span {
+  padding: 8px 14px;
+  font-size: 0.85rem;
+}
+@media (max-width:768px){
+
+.hero-trust{
+  flex-direction:column;
+  align-items:flex-start;
+}
+
+.hero-trust span{
+  width:100%;
+}
+
+}
+}

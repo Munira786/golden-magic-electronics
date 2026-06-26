@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Golden Magic Electronics</title>
+  <meta name="description" content="Contact — Golden Magic Electronics - Enterprise technology solutions in the UAE.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { colors: { gmeBlue: "#18489A", gmeGreen: "#7FB74F" } } } };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/contact.css">
+</head>
+<body class="font-sans text-gmeInk overflow-x-hidden">
+  <header class="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur shadow-sm">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+      
+      <!-- Logo -->
+      <a href="../index.html" class="flex items-center gap-3 focus-visible:ring-2 focus-visible:ring-gmeBlue rounded-lg outline-none" aria-label="Home">
+        <img src="../logo.png" alt="Golden Magic Electronics Logo" class="h-12 w-12 rounded-full object-cover">
+        <div class="hidden sm:block">
+          <p class="text-base font-bold text-gmeBlue leading-tight">Golden Magic Electronics</p>
+          <p class="text-[11px] text-slate-500 font-medium uppercase tracking-wider mt-0.5">Your Trusted Partner</p>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex lg:items-center lg:gap-8" aria-label="Main Navigation">
+        <a href="../index.html" class="nav-link text-sm font-semibold text-slate-600 hover:text-gmeBlue transition-colors focus-visible:ring-2 focus-visible:ring-gmeBlue rounded-md outline-none px-2 py-1">Home</a>
+        <a href="about.html" class="nav-link text-sm font-semibold text-slate-600 hover:text-gmeBlue transition-colors focus-visible:ring-2 focus-visible:ring-gmeBlue rounded-md outline-none px-2 py-1">About</a>
+        <a href="services.html" class="nav-link text-sm font-semibold text-slate-600 hover:text-gmeBlue transition-colors focus-visible:ring-2 focus-visible:ring-gmeBlue rounded-md outline-none px-2 py-1">Services</a>
+        <a href="products.html" class="nav-link text-sm font-semibold text-slate-600 hover:text-gmeBlue transition-colors focus-visible:ring-2 focus-visible:ring-gmeBlue rounded-md outline-none px-2 py-1">Products</a>
+        <a href="contact.html" class="nav-link text-sm font-semibold text-slate-600 hover:text-gmeBlue transition-colors focus-visible:ring-2 focus-visible:ring-gmeBlue rounded-md outline-none px-2 py-1">Contact</a>
+      </nav>
+
+      <!-- Desktop Actions -->
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="contact.html" class="rounded-full bg-gmeBlue px-5 py-2.5 text-sm font-bold text-white shadow-md transition hover:bg-gmeBlueDeep focus-visible:ring-2 focus-visible:ring-gmeGreen outline-none">Get a Quote</a>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
+      <button id="mobileMenuBtn" class="lg:hidden flex items-center justify-center h-10 w-10 rounded-md text-gmeBlue hover:bg-slate-100 transition focus-visible:ring-2 focus-visible:ring-gmeBlue outline-none" aria-label="Open menu" aria-expanded="false">
+        <i class="fa-solid fa-bars text-xl"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileDrawer" class="fixed inset-0 z-50 hidden" aria-modal="true">
+      <div id="mobileDrawerOverlay" class="absolute inset-0 bg-slate-900/50 backdrop-blur-sm opacity-0 transition-opacity"></div>
+      <div id="mobileDrawerPanel" class="absolute top-0 end-0 bottom-0 w-4/5 max-w-sm bg-white shadow-2xl translate-x-full transition-transform duration-300 flex flex-col">
+        <div class="flex items-center justify-between p-4 border-b border-slate-100">
+          <p class="font-bold text-gmeBlue">Menu</p>
+          <button id="closeMobileMenuBtn" class="h-10 w-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-500 hover:text-gmeBlue hover:bg-slate-100 transition focus-visible:ring-2 focus-visible:ring-gmeBlue outline-none" aria-label="Close menu">
+            <i class="fa-solid fa-xmark text-lg"></i>
+          </button>
+        </div>
+        <nav class="flex-1 overflow-y-auto p-4 flex flex-col gap-2" aria-label="Mobile Navigation">
+          <a href="../index.html" class="nav-link block rounded-lg px-4 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 hover:text-gmeBlue focus-visible:ring-2 focus-visible:ring-gmeBlue outline-none">Home</a>
+          <a href="about.html" class="nav-link block rounded-lg px-4 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 hover:text-gmeBlue focus-visible:ring-2 focus-visible:ring-gmeBlue outline-none">About</a>
+          <a href="services.html" class="nav-link block rounded-lg px-4 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 hover:text-gmeBlue focus-visible:ring-2 focus-visible:ring-gmeBlue outline-none">Services</a>
+          <a href="products.html" class="nav-link block rounded-lg px-4 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 hover:text-gmeBlue focus-visible:ring-2 focus-visible:ring-gmeBlue outline-none">Products</a>
+          <a href="contact.html" class="nav-link block rounded-lg px-4 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 hover:text-gmeBlue focus-visible:ring-2 focus-visible:ring-gmeBlue outline-none">Contact</a>
+        </nav>
+        <div class="p-4 border-t border-slate-100 flex flex-col gap-3">
+          <a href="contact.html" class="block w-full text-center rounded-xl bg-gmeBlue px-4 py-3 text-sm font-bold text-white shadow-md transition hover:bg-gmeBlueDeep focus-visible:ring-2 focus-visible:ring-gmeGreen outline-none">Get a Quote</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- SECTION 1 — HERO -->
+    <section class="contact-hero">
+      <div class="contact-hero-content">
+        <div>
+          <span class="hero-label">CONTACT & SUPPORT</span>
+          <h1 class="hero-title">Reach Out to the Golden Magic Electronics Team</h1>
+          <p class="hero-desc">Request quotations, technical support, maintenance services, CCTV consultations, networking solutions, structured cabling projects, and enterprise IT assistance across Dubai and the UAE.</p>
+          
+          <div class="hero-badges">
+            <span class="hero-badge"><i class="fa-solid fa-check"></i> 20+ Years Experience</span>
+            <span class="hero-badge"><i class="fa-solid fa-check"></i> UAE-Wide Support</span>
+            <span class="hero-badge"><i class="fa-solid fa-check"></i> 24/7 Technical Assistance</span>
+          </div>
+          
+          <div class="flex gap-4 flex-wrap">
+            <a href="#quoteForm" class="btn-primary">Request a Quote</a>
+            <a href="tel:+971557557786" class="btn-outline">Call Now</a>
+          </div>
+        </div>
+        <div class="hero-visual reveal">
+          <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop" alt="IT Support Team" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2 — CONTACT OPTIONS -->
+    <section class="contact-hub">
+      <div class="text-center mb-12 reveal">
+        <h2 class="text-3xl font-bold text-gmeBlue mb-4">Connect With Our Specialists</h2>
+        <p class="text-slate-600 max-w-2xl mx-auto">Choose the most convenient way to reach us for your IT and electronics requirements.</p>
+      </div>
+      
+      <div class="contact-grid reveal">
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="fa-solid fa-phone"></i>
+          </div>
+          <h3 class="contact-title">Phone Support</h3>
+          <p class="contact-detail">+971 55 755 7786</p>
+          <p class="contact-sub">Direct access to our technical team.</p>
+          <a href="tel:+971557557786" class="contact-action">Call Now <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="fa-solid fa-envelope"></i>
+          </div>
+          <h3 class="contact-title">Email Support</h3>
+          <p class="contact-detail">gme786@gmail.com</p>
+          <p class="contact-sub">Detailed project inquiries & quotes.</p>
+          <a href="mailto:gme786@gmail.com" class="contact-action">Email Us <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="contact-card whatsapp-card">
+          <div class="contact-icon">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+          <h3 class="contact-title">WhatsApp Business</h3>
+          <p class="contact-detail">+971 55 755 7786</p>
+          <p class="contact-sub">Quick response for quotations and support.</p>
+          <a href="https://wa.me/971557557786" target="_blank" class="contact-action text-emerald-600">Message Us <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="fa-solid fa-clock"></i>
+          </div>
+          <h3 class="contact-title">Business Hours</h3>
+          <p class="contact-detail">Mon – Sat</p>
+          <p class="contact-sub">9:00 AM – 7:00 PM</p>
+          <div class="contact-action text-slate-500">Dubai Time (GST)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3 — CONTACT FORM -->
+    <section id="quoteForm" class="form-section">
+      <div class="form-container reveal">
+        <div class="form-header">
+          <h2 class="text-3xl font-bold text-gmeBlue mb-4">Tell Us About Your Project</h2>
+          <p class="text-slate-600">Provide details about your requirements, and our technical team will get back to you with a tailored solution.</p>
+        </div>
+        
+        <form id="contactRequestForm" class="form-grid">
+          <div class="form-group">
+            <label class="form-label">Name *</label>
+            <input type="text" name="name" required class="form-input" placeholder="John Doe">
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Company Name</label>
+            <input type="text" name="company" class="form-input" placeholder="Your Company LLC">
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Email Address *</label>
+            <input type="email" name="email" required class="form-input" placeholder="john@company.com">
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Phone Number *</label>
+            <input type="tel" name="phone" required class="form-input" placeholder="+971 50 000 0000">
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Service Required</label>
+            <select name="service" class="form-input">
+              <option value="" disabled selected>Select a Service</option>
+              <option value="CCTV Installation">CCTV Installation</option>
+              <option value="Network Setup">Network Setup</option>
+              <option value="Structured Cabling">Structured Cabling</option>
+              <option value="Server Solutions">Server Solutions</option>
+              <option value="IT Maintenance">IT Maintenance</option>
+              <option value="Technology Consultation">Technology Consultation</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Project Location</label>
+            <input type="text" name="location" class="form-input" placeholder="e.g., Deira, Dubai">
+          </div>
+          
+          <div class="form-group full-width">
+            <label class="form-label">Message *</label>
+            <textarea name="message" required class="form-input" placeholder="Please describe your requirements or the issue you are facing..."></textarea>
+          </div>
+          
+          <div class="form-group full-width mt-4">
+            <button type="submit" class="form-submit">Send Request</button>
+            <div id="formSuccess" class="hidden mt-4 p-4 bg-emerald-50 text-emerald-700 rounded-xl border border-emerald-200 text-center font-semibold">
+              <i class="fa-solid fa-check-circle me-2"></i> Thank you! Your request has been sent. We will contact you shortly.
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- SECTION 4 — LOCATION & SERVICE COVERAGE -->
+    <section class="map-section">
+      <div class="map-container">
+        <!-- Generic embed for Deira, Dubai, simulating the business location -->
+        <iframe class="map-embed" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14434.614660352528!2d55.3059881643444!3d25.271923145890884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43477d6118b7%3A0x8670a53b2693fa95!2sDeira%20-%20Dubai%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2sus!4v1714421102927!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      
+      <div class="coverage-panel reveal">
+        <div class="flex-1">
+          <h2 class="text-2xl font-bold text-gmeBlue mb-2">Visit Our Dubai Office</h2>
+          <p class="text-slate-600 font-semibold mb-1">Golden Magic Electronics</p>
+          <p class="text-slate-600">Shop No. 6, Behind ALTAJ Studio<br>Deira, Dubai, UAE</p>
+          
+          <div class="mt-6 flex gap-4 flex-wrap">
+            <a href="https://maps.google.com" target="_blank" class="btn-primary text-sm py-2 px-4"><i class="fa-solid fa-map-location-dot me-2"></i> Get Directions</a>
+          </div>
+        </div>
+        
+        <div class="flex-1 border-t md:border-t-0 md:border-l border-slate-200 pt-6 md:pt-0 md:ps-8">
+          <h3 class="text-lg font-bold text-gmeBlue mb-3">Service Coverage</h3>
+          <p class="text-sm text-slate-600 mb-4">On-site support available throughout the UAE:</p>
+          <div class="coverage-list">
+            <span class="coverage-item">Dubai</span>
+            <span class="coverage-item">Abu Dhabi</span>
+            <span class="coverage-item">Sharjah</span>
+            <span class="coverage-item">Ajman</span>
+            <span class="coverage-item">Ras Al Khaimah</span>
+            <span class="coverage-item">Fujairah</span>
+            <span class="coverage-item">Umm Al Quwain</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5 — SUPPORT & RESPONSE COMMITMENT -->
+    <section class="support-section">
+      <div class="text-center max-w-3xl mx-auto reveal">
+        <h2 class="text-3xl font-bold text-gmeBlue mb-4">Fast and Reliable Support</h2>
+        <p class="text-slate-600">Our commitment to ensuring your business operations run smoothly with minimal downtime.</p>
+      </div>
+      
+      <div class="timeline reveal">
+        <div class="timeline-item">
+          <div class="timeline-icon"><i class="fa-solid fa-headset"></i></div>
+          <div class="timeline-content">
+            <h3 class="timeline-title">Technical Support</h3>
+            <p class="text-slate-600">Rapid troubleshooting and assistance for networking, server, and CCTV issues. Available remotely and on-site.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+          <div class="timeline-content">
+            <h3 class="timeline-title">Project Consultations</h3>
+            <p class="text-slate-600">Expert recommendations, site surveys, and structured planning before implementation to ensure flawless execution.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+          <div class="timeline-content">
+            <h3 class="timeline-title">Maintenance Services</h3>
+            <p class="text-slate-600">Preventive and corrective maintenance (AMCs) to extend the lifespan of your IT infrastructure and surveillance systems.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-icon"><i class="fa-solid fa-truck-fast"></i></div>
+          <div class="timeline-content">
+            <h3 class="timeline-title">Emergency Assistance</h3>
+            <p class="text-slate-600">Priority support for critical infrastructure failures to restore your business operations immediately.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6 — FREQUENTLY ASKED QUESTIONS -->
+    <section class="faq-section">
+      <div class="text-center reveal">
+        <h2 class="text-3xl font-bold text-gmeBlue mb-4">Frequently Asked Questions</h2>
+        <p class="text-slate-600">Common queries regarding our services and support.</p>
+      </div>
+      
+      <div class="faq-grid reveal" itemscope itemtype="https://schema.org/FAQPage">
+        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="faq-q" itemprop="name"><i class="fa-solid fa-circle-question"></i> How can I request a quotation?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="faq-a" itemprop="text">You can request a quotation by filling out the form on this page, sending us an email at gme786@gmail.com, or directly messaging us on WhatsApp with your project requirements.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="faq-q" itemprop="name"><i class="fa-solid fa-circle-question"></i> Do you provide UAE-wide support?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="faq-a" itemprop="text">Yes, while our head office is in Dubai, we provide installation and on-site support services across all Emirates including Abu Dhabi, Sharjah, and Ajman.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="faq-q" itemprop="name"><i class="fa-solid fa-circle-question"></i> Do you offer Annual Maintenance Contracts (AMC)?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="faq-a" itemprop="text">Absolutely. We offer comprehensive AMCs for IT infrastructure, CCTV systems, servers, and telephony to ensure continuous operation and preventive care.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="faq-q" itemprop="name"><i class="fa-solid fa-circle-question"></i> Can I request a site survey?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="faq-a" itemprop="text">Yes, we provide professional site surveys to accurately assess your networking, cabling, or surveillance requirements before delivering a finalized proposal.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="faq-q" itemprop="name"><i class="fa-solid fa-circle-question"></i> How quickly can support requests be handled?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="faq-a" itemprop="text">We prioritize urgent infrastructure issues. Depending on your SLA or AMC contract, emergency response can be immediate remotely, or within a few hours for on-site visits in Dubai.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="faq-q" itemprop="name"><i class="fa-solid fa-circle-question"></i> Do you provide remote technical support?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="faq-a" itemprop="text">Yes, for server, network configuration, and software-related issues, our team can provide secure remote technical support to resolve problems instantly.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7 — FINAL CTA -->
+    <section class="section-gap" style="padding-top: 2rem; padding-bottom: 4rem;">
+      <div class="rounded-[2rem] bg-slate-900 px-8 py-16 text-center shadow-2xl relative overflow-hidden reveal">
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 50% 0%, #7AB83D 0%, transparent 70%);"></div>
+        <div class="relative z-10 max-w-3xl mx-auto">
+          <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/10 text-gmeGreen mb-6 border border-white/20">
+            <i class="fa-brands fa-whatsapp text-3xl"></i>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">Need an Immediate Response?</h2>
+          <p class="text-lg text-slate-400 mb-8 max-w-2xl mx-auto">Skip the form and reach out directly via WhatsApp for urgent technical support or rapid project estimations.</p>
+          <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="https://wa.me/971557557786" target="_blank" class="inline-flex items-center justify-center gap-2 rounded-full bg-gmeGreen px-10 py-4 text-base font-bold text-white transition hover:bg-gmeGreen/90 hover:-translate-y-1 shadow-lg shadow-gmeGreen/20"><i class="fa-brands fa-whatsapp text-xl"></i> Chat on WhatsApp</a>
+            <a href="#quoteForm" class="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-transparent px-10 py-4 text-base font-bold text-white transition hover:bg-white/10 hover:-translate-y-1"><i class="fa-solid fa-arrow-up"></i> Return to Form</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-premium bg-slate-100 text-slate-800 mt-16">
+    <div class="mx-auto max-w-7xl px-4 pt-10 pb-8 sm:px-6 lg:px-8">
+      <div class="grid gap-6 mb-8 footer-premium-grid">
+        <div>
+          <div class="flex items-center gap-4 mb-3">
+            <img src="../logo.png" alt="GME logo" class="h-[72px] w-auto object-contain">
+            <h4 class="text-sm font-bold uppercase tracking-widest text-gmeBlue">Golden Magic Electronics</h4>
+          </div>
+          <p class="text-sm font-medium text-gmeGreen mb-3">Your Trusted Partner in Electronics Solutions</p>
+          <p class="text-sm text-slate-600 leading-6">Leading provider of integrated electronic solutions, IT infrastructure, and trading services in the heart of Dubai.</p>
+        </div>
+
+        <div>
+          <h4 class="text-sm font-bold uppercase tracking-widest text-gmeBlue mb-4">Contact Info</h4>
+          <div class="space-y-3">
+            <div class="footer-contact-item flex items-start gap-3">
+              <i class="fa-solid fa-map-pin text-gmeGreen mt-0.5 flex-shrink-0 text-sm"></i>
+              <p class="text-sm text-slate-600">Shop No.6, Behind ALTAJ Studio, Deira, Dubai</p>
+            </div>
+            <div class="footer-contact-item flex items-start gap-3">
+              <i class="fa-solid fa-envelope text-gmeGreen mt-0.5 flex-shrink-0 text-sm"></i>
+              <a href="mailto:gme786@gmail.com" class="text-sm text-slate-600">gme786@gmail.com</a>
+            </div>
+            <div class="footer-contact-item flex items-start gap-3">
+              <i class="fa-solid fa-phone text-gmeGreen mt-0.5 flex-shrink-0 text-sm"></i>
+              <a href="tel:+971557557786" class="text-sm text-slate-600">+971 55 755 7786</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-slate-300 pt-6">
+        <div class="flex justify-center">
+          <p class="text-xs text-slate-500">&copy; 2024 Golden Magic Electronics. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js" defer></script>
+</body>
+</html>

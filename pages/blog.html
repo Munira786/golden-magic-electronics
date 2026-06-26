@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Golden Magic Electronics</title>
+  <meta name="description" content="Blog — Golden Magic Electronics - Enterprise technology solutions in the UAE.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { colors: { gmeBlue: "#18489A", gmeGreen: "#7FB74F" } } } };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="font-sans text-gmeInk overflow-x-hidden">
+  <header class="sticky top-0 z-50 border-b border-gmeBlue/10 bg-white/90 backdrop-blur">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
+      <a href="../index.html" class="flex items-center gap-3">
+        <img src="../new-logo.jpg" alt="GME logo" class="h-14 w-14 rounded-full object-cover ring-2 ring-gmeGreen/40" loading="lazy">
+        <div>
+          <p class="text-base font-bold text-gmeBlue">Golden Magic Electronics</p>
+          <p class="text-xs text-slate-500" data-i18n="brandSub">Your Trusted Partner in Electronics Solutions</p>
+        </div>
+      </a>
+      <nav class="hidden lg:flex lg:items-center lg:gap-6">
+        <a href="../index.html" class="text-sm font-semibold text-gmeBlue/90 hover:text-gmeBlue">Home</a>
+        <a href="about.html" class="text-sm font-semibold text-gmeBlue/90 hover:text-gmeBlue">About</a>
+        <a href="services.html" class="text-sm font-semibold text-gmeBlue/90 hover:text-gmeBlue">Services</a>
+        <a href="products.html" class="text-sm font-semibold text-gmeBlue/90 hover:text-gmeBlue">Products</a>
+        <a href="blog.html" class="text-sm font-semibold text-gmeBlue/90 hover:text-gmeBlue">Blog</a>
+        <a href="careers.html" class="text-sm font-semibold text-gmeBlue/90 hover:text-gmeBlue">Careers</a>
+        <a href="contact.html" class="text-sm font-semibold text-gmeBlue/90 hover:text-gmeBlue">Contact</a>
+      </nav>
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button id="langToggle" class="rounded-full border border-gmeGreen px-4 py-2 text-sm font-semibold text-gmeBlue transition hover:bg-gmeGreen hover:text-white">AR</button>
+        <a href="../index.html#quote" class="hidden rounded-full bg-gmeBlue px-4 py-2 text-sm font-semibold text-white transition hover:bg-gmeGreen sm:inline-flex" data-i18n="quoteNav">Request Quote</a>
+        <button id="cartButton" class="inline-flex items-center gap-2 rounded-full bg-gmeBlue px-4 py-2 text-sm font-semibold text-white transition hover:bg-gmeGreen">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span data-i18n="cart">Cart</span>
+          <span id="cartCount" class="rounded-full bg-white px-2 py-0.5 text-xs font-bold text-gmeBlue">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <h1 class="text-3xl font-extrabold text-gmeBlue">News & Articles</h1>
+    <p class="mt-2 text-slate-600">Insights on networking, security and business IT best practices.</p>
+
+    <section class="mt-8 grid gap-6 md:grid-cols-2">
+      <article class="rounded-[1.5rem] bg-white p-6 shadow-panel">
+        <h2 class="text-xl font-bold text-gmeBlue">Preparing Server Rooms for Summer</h2>
+        <p class="mt-3 text-slate-600">A short guide to thermal audits and preventive measures for reliable operation.</p>
+      </article>
+      <article class="rounded-[1.5rem] bg-white p-6 shadow-panel">
+        <h2 class="text-xl font-bold text-gmeBlue">Choosing CCTV for Retail</h2>
+        <p class="mt-3 text-slate-600">Key considerations when specifying surveillance systems for stores.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="mt-16 bg-gmeBlueDeep text-white">
+    <div class="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[1.1fr_0.9fr_0.9fr] lg:px-8">
+      <div>
+        <div class="flex items-center gap-3">
+          <img src="../new-logo.jpg" alt="GME logo" class="h-16 w-16 rounded-full object-cover ring-2 ring-gmeGreen/40" loading="lazy">
+          <div>
+            <p class="text-lg font-bold">Golden Magic Electronics</p>
+            <p class="text-sm text-white/75" data-i18n="brandSub">Your Trusted Partner in Electronics Solutions</p>
+          </div>
+        </div>
+        <p class="mt-4 max-w-md text-sm leading-7 text-white/75" data-i18n="footerText">Shop No. 6, Behind ALTAJ Studio, Deira, Dubai. Trusted electronics trading, installation, and support services for UAE businesses.</p>
+      </div>
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.25em] text-gmeGreen">Contact</p>
+        <div class="mt-4 space-y-2 text-sm text-white/80">
+          <p><i class="fa-solid fa-location-dot me-2 text-gmeGreen"></i> Shop No.6, Behind ALTAJ Studio, Deira, Dubai</p>
+          <p><i class="fa-solid fa-phone me-2 text-gmeGreen"></i> +971 557557786</p>
+          <p><i class="fa-solid fa-envelope me-2 text-gmeGreen"></i> gme786@gmail.com</p>
+        </div>
+      </div>
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.25em] text-gmeGreen">Working Hours</p>
+        <div class="mt-4 space-y-2 text-sm text-white/80">
+          <p>Sat-Thu, 9 AM-6 PM UAE time</p>
+          <p>Friday: Closed</p>
+          <p data-i18n="delivery">UAE-wide delivery & installation</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js" defer></script>
+</body>
+</html>
