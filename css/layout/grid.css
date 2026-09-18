@@ -1,0 +1,44 @@
+.page-content {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+main {
+  padding-bottom: 2rem;
+}
+
+.section-gap {
+  padding-top: 5.5rem;
+  padding-bottom: 5.5rem;
+}
+
+.section-gap + .section-gap {
+  padding-top: 0;
+}
+
+.section-bg-soft,
+.section-bg-white {
+  background: white;
+}
+
+.section-bg-gradient {
+  background: linear-gradient(135deg, var(--color-blue) 0%, #0f2f6b 100%);
+  color: white;
+  border-radius: var(--radius-2xl);
+}
+
+.section-rounded {
+  border-radius: var(--radius-2xl);
+}
+
+@media (max-width: 768px) {
+  .section-gap {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .page-content {
+    padding: 2rem 1rem;
+  }
+}
