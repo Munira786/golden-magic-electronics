@@ -1,0 +1,490 @@
+/* ========== GENERIC CARD HOVER ========== */
+article {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========== SERVICE / PRODUCT CARD ========== */
+.service-card,
+.product-card {
+  background: white;
+  border: 1px solid rgba(24, 72, 154, 0.08);
+  border-radius: 28px;
+  padding: 2rem;
+  box-shadow: var(--shadow-panel);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.service-card:hover,
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 80px rgba(24, 72, 154, 0.16);
+  border-color: var(--color-green);
+}
+
+.service-icon-container,
+.product-icon-container {
+  width: 62px;
+  height: 62px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--color-blue), var(--color-blue-deep));
+  color: white;
+  font-size: 1.35rem;
+  margin-bottom: 1rem;
+}
+
+.service-card:hover .service-icon-container,
+.product-card:hover .product-icon-container {
+  transform: scale(1.08);
+}
+
+.service-title,
+.product-title,
+.service-card h3 {
+  margin-top: 0.25rem;
+  font-size: 1.15rem;
+  color: var(--color-blue);
+  margin-bottom: 0.5rem;
+}
+
+.service-description,
+.product-description,
+.service-card p {
+  color: var(--slate-600);
+  line-height: 1.75;
+}
+
+.service-card-premium {
+  border-radius: 1rem;
+  box-shadow: var(--shadow-panel);
+  background: white;
+  border: 1px solid var(--slate-100);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  border-top: 3px solid transparent;
+  transition: all 0.35s ease;
+}
+
+.service-card-premium:hover {
+  border-top-color: var(--color-green);
+  border-color: var(--color-green);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-6px);
+}
+
+.service-includes-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-ink);
+  margin-bottom: 0.75rem;
+}
+
+.service-includes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+  margin-bottom: 1rem;
+}
+
+.service-includes-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--slate-700);
+}
+
+.service-includes-list i {
+  color: var(--color-green);
+  margin-top: 0.2rem;
+  font-size: 0.75rem;
+}
+
+.product-price {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-blue);
+  margin-top: 1rem;
+}
+
+.product-vat {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--slate-500);
+}
+
+.product-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.product-tag {
+  border-radius: var(--radius-full);
+  background: var(--color-mist);
+  color: var(--color-blue);
+  padding: 0.35rem 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.product-actions {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.product-actions .btn {
+  padding: 0.75rem 1.25rem;
+  font-size: 0.85rem;
+}
+
+/* ========== PARTNER CARD ========== */
+.partner-card {
+  min-height: 110px;
+  border-radius: 22px;
+  background: white;
+  border: 1px solid rgba(24, 72, 154, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  box-shadow: 0 16px 40px rgba(24, 72, 154, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.partner-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 60px rgba(24, 72, 154, 0.12);
+  border-color: rgba(127, 183, 79, 0.2);
+}
+
+.partner-card span {
+  color: var(--slate-600);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.partner-card img {
+  width: 120px;
+  height: 48px;
+  object-fit: contain;
+}
+
+/* ========== STAT CARD ========== */
+.stat-card {
+  background: white;
+  border: 1px solid rgba(24, 72, 154, 0.08);
+  border-radius: 28px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 24px 60px rgba(24, 72, 154, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 70px rgba(24, 72, 154, 0.16);
+  border-color: rgba(127, 183, 79, 0.25);
+}
+
+.stat-value {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--color-blue);
+  margin-bottom: 0.4rem;
+}
+
+.stat-label {
+  font-size: 0.95rem;
+  color: var(--slate-600);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* ========== METRIC CARD ========== */
+.metric-card {
+  padding: 2.5rem 2rem;
+  background: white;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(31, 78, 163, 0.06);
+  transition: all 0.3s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(31, 78, 163, 0.12);
+  border-color: rgba(122, 184, 61, 0.3);
+}
+
+.metric-icon-wrapper {
+  width: 3.5rem;
+  height: 3.5rem;
+  margin: 0 auto 1.25rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(31, 78, 163, 0.08), rgba(122, 184, 61, 0.06));
+  display: grid;
+  place-items: center;
+  font-size: 1.5rem;
+  color: var(--color-blue-mid);
+}
+
+.metric-value {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  color: var(--color-blue-mid);
+  margin: 0.5rem 0 0.75rem;
+}
+
+.metric-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-blue-deep);
+  margin: 0 0 0.75rem;
+  line-height: 1.4;
+}
+
+.metric-description {
+  font-size: 0.85rem;
+  color: var(--slate-500);
+  line-height: 1.6;
+}
+
+/* ========== TECH / ECOSYSTEM CARD ========== */
+.tech-card,
+.tech-ecosystem-card,
+.support-card {
+  padding: 2.5rem 2rem;
+  background: white;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(31, 78, 163, 0.06);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.tech-card:hover,
+.tech-ecosystem-card:hover,
+.support-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 70px rgba(31, 78, 163, 0.15);
+  border-color: rgba(122, 184, 61, 0.35);
+}
+
+.tech-ecosystem-card {
+  text-align: left;
+}
+
+.tech-icon-box,
+.ecosystem-icon-wrapper,
+.support-icon {
+  width: 4rem;
+  height: 4rem;
+  margin: 0 auto 1.5rem;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(31, 78, 163, 0.1), rgba(122, 184, 61, 0.08));
+  display: grid;
+  place-items: center;
+  font-size: 1.8rem;
+  color: var(--color-blue-mid);
+  transition: transform 0.3s ease;
+}
+
+.tech-ecosystem-card .ecosystem-icon-wrapper {
+  margin: 0 0 1rem;
+}
+
+.tech-card:hover .tech-icon-box {
+  transform: scale(1.15);
+}
+
+.tech-card-title,
+.support-card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-blue-mid);
+  margin: 0 0 1rem;
+}
+
+.tech-card-description,
+.support-card p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--slate-600);
+  margin: 0 0 1.5rem;
+}
+
+.tech-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+}
+
+.tech-feature {
+  display: inline-block;
+  padding: 0.4rem 0.9rem;
+  background: rgba(122, 184, 61, 0.08);
+  color: #2d5016;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid rgba(122, 184, 61, 0.15);
+}
+
+/* ========== INDUSTRY CARD ========== */
+.industries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+.industry-card {
+  padding: 2.5rem 2rem;
+  background: linear-gradient(135deg, white, rgba(248, 250, 252, 0.9));
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(31, 78, 163, 0.05);
+  text-align: center;
+  transition: all 0.3s ease;
+  display: block;
+}
+
+.industry-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(31, 78, 163, 0.12);
+  border-color: rgba(122, 184, 61, 0.3);
+}
+
+.industry-icon {
+  width: 4.5rem;
+  height: 4.5rem;
+  margin: 0 auto 1.25rem;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(31, 78, 163, 0.12), rgba(122, 184, 61, 0.08));
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  color: var(--color-blue-mid);
+}
+
+.industry-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-blue-mid);
+  margin: 0 0 0.75rem;
+}
+
+.industry-description {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--slate-600);
+}
+
+/* ========== ADVANTAGE ITEM (dark background) ========== */
+.advantage-item {
+  padding: 2.5rem 2rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.advantage-item:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.advantage-icon {
+  width: 4rem;
+  height: 4rem;
+  margin: 0 auto 1.25rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  display: grid;
+  place-items: center;
+  font-size: 1.8rem;
+  color: #7ab83d;
+}
+
+.advantage-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 0.75rem;
+}
+
+.advantage-text {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ========== FEATURE / VALUE / TRUST CARD ========== */
+.feature-card,
+.value-card,
+.trust-card {
+  border-radius: 28px;
+  background: white;
+  padding: 2rem;
+  border: 1px solid rgba(24, 72, 154, 0.08);
+  box-shadow: 0 24px 60px rgba(24, 72, 154, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.feature-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: center;
+}
+
+.feature-icon {
+  width: 62px;
+  height: 62px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--color-green), #6ca33f);
+  color: white;
+  font-size: 1.35rem;
+}
+
+.feature-content h3,
+.value-card h3,
+.trust-card h3 {
+  margin-top: 0;
+  font-size: 1.25rem;
+  color: var(--color-blue);
+}
+
+.feature-description,
+.value-card p,
+.trust-card p {
+  color: var(--slate-600);
+  line-height: 1.8;
+}
+
+@media (max-width: 640px) {
+  .industries-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tech-card,
+  .support-card {
+    padding: 2rem 1.5rem;
+  }
+}

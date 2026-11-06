@@ -1,0 +1,44 @@
+.simple-page h1 {
+  margin-bottom: 0.5rem;
+}
+
+.simple-page > p {
+  color: var(--slate-600);
+  margin-bottom: 2rem;
+}
+
+.simple-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.simple-card {
+  border-radius: 1.5rem;
+  background: white;
+  padding: 1.75rem;
+  box-shadow: var(--shadow-panel);
+  border: 1px solid var(--slate-100);
+}
+
+.simple-card h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.simple-card p {
+  color: var(--slate-600);
+  margin-bottom: 1rem;
+}
+
+.simple-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .simple-grid {
+    grid-template-columns: 1fr;
+  }
+}

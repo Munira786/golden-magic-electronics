@@ -1,0 +1,333 @@
+/* ========== CONTACT OPTIONS HUB ========== */
+.contact-hub {
+  padding: 6rem 0;
+  background: var(--slate-50);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.contact-card {
+  background: white;
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 10px 30px rgba(31, 78, 163, 0.05);
+  border: 1px solid rgba(31, 78, 163, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(31, 78, 163, 0.1);
+  border-color: rgba(122, 184, 61, 0.4);
+}
+
+.contact-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  background: rgba(31, 78, 163, 0.08);
+  color: var(--color-blue-mid);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.contact-card:hover .contact-icon {
+  background: var(--color-blue-mid);
+  color: white;
+}
+
+.whatsapp-card:hover .contact-icon {
+  background: #25d366;
+}
+
+.contact-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-blue-mid);
+  margin-bottom: 0.5rem;
+}
+
+.contact-detail {
+  font-size: 1.125rem;
+  color: var(--slate-700);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.contact-sub {
+  font-size: 0.875rem;
+  color: var(--slate-500);
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.contact-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--color-blue-mid);
+  font-size: 0.95rem;
+}
+
+.contact-action:hover {
+  color: #7ab83d;
+}
+
+/* ========== FORM SECTION ========== */
+.form-section {
+  padding: 6rem 0;
+  background: white;
+}
+
+/* ========== MAP SECTION ========== */
+.map-section {
+  background: var(--slate-50);
+}
+
+.map-container {
+  width: 100%;
+  height: 420px;
+  background: var(--slate-200);
+}
+
+.map-embed {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.coverage-panel {
+  max-width: var(--container-max);
+  margin: -70px auto 0;
+  position: relative;
+  z-index: 10;
+  background: white;
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  display: flex;
+  gap: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.coverage-panel > div {
+  flex: 1;
+}
+
+.coverage-panel .divider-col {
+  border-left: 1px solid var(--slate-200);
+  padding-left: 2rem;
+}
+
+@media (max-width: 900px) {
+  .coverage-panel {
+    flex-direction: column;
+    margin: -40px 1rem 0;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .coverage-panel .divider-col {
+    border-left: none;
+    border-top: 1px solid var(--slate-200);
+    padding-left: 0;
+    padding-top: 1.5rem;
+  }
+
+  .coverage-list {
+    justify-content: center;
+  }
+}
+
+/* ========== SUPPORT TIMELINE ========== */
+.support-section {
+  padding: 6rem 0;
+  background: white;
+}
+
+.support-timeline {
+  max-width: 900px;
+  margin: 4rem auto 0;
+  position: relative;
+}
+
+.support-timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 2rem;
+  width: 2px;
+  background: rgba(31, 78, 163, 0.1);
+}
+
+.support-timeline-item {
+  position: relative;
+  padding-left: 5rem;
+  margin-bottom: 3rem;
+}
+
+.support-timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.support-timeline-icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4rem;
+  height: 4rem;
+  background: white;
+  border: 2px solid var(--color-blue-mid);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--color-blue-mid);
+  box-shadow: 0 0 0 8px white;
+}
+
+.support-timeline-content {
+  background: var(--slate-50);
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.support-timeline-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-blue-mid);
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .support-timeline::before {
+    left: 1.5rem;
+  }
+
+  .support-timeline-item {
+    padding-left: 4rem;
+  }
+
+  .support-timeline-icon {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.25rem;
+  }
+}
+
+/* ========== FAQ ========== */
+.faq-section {
+  padding: 6rem 0;
+  background: var(--slate-50);
+}
+
+.faq-grid {
+  max-width: 1000px;
+  margin: 3rem auto 0;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+.faq-item {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  box-shadow: 0 12px 24px rgba(31, 78, 163, 0.06);
+  border-color: rgba(31, 78, 163, 0.15);
+}
+
+.faq-q {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--slate-800);
+  margin-bottom: 0.75rem;
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.faq-q i {
+  color: #7ab83d;
+  margin-top: 0.25rem;
+}
+
+.faq-a {
+  color: var(--slate-600);
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========== WHATSAPP CTA ========== */
+.cta-whatsapp {
+  position: relative;
+  border-radius: var(--radius-2xl);
+  background: var(--slate-900);
+  padding: 4rem 1.5rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.cta-whatsapp-glow {
+  position: absolute;
+  inset: 0;
+  opacity: 0.1;
+  background-image: radial-gradient(circle at 50% 0%, #7ab83d 0%, transparent 70%);
+}
+
+.cta-whatsapp-content {
+  position: relative;
+  z-index: 2;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.cta-whatsapp-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #7ab83d;
+  font-size: 1.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 1.5rem;
+}
+
+.cta-whatsapp-content h2 {
+  color: white;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  margin-bottom: 1rem;
+}
+
+.cta-whatsapp-content p {
+  color: var(--slate-400);
+  margin-bottom: 2rem;
+}
