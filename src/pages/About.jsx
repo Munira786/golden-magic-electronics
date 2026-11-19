@@ -83,7 +83,7 @@ export default function About() {
             <div className="page-hero-visual">
               <div className="page-hero-image-wrapper">
                 <div className="page-hero-image-frame">
-                  <img src="/about_page_img.png" alt="Golden Magic Electronics technology infrastructure" loading="lazy" />
+                  <img src="/about.webp" width="1536" height="1024" alt="Golden Magic Electronics technology infrastructure" fetchpriority="high" />
                 </div>
                 <div className="page-hero-card">
                   <div className="page-hero-card-icon">

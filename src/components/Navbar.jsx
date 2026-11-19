@@ -27,7 +27,7 @@ export default function Navbar() {
     <header className="site-header">
       <div className="site-header-inner">
         <NavLink to="/" className="brand" aria-label="Home">
-          <img src="/logo.png" alt="Golden Magic Electronics Logo" className="brand-logo" />
+          <img src="/logo-sm.png" alt="Golden Magic Electronics Logo" width="150" height="124" className="brand-logo" />
           <div className="brand-text">
             <p className="brand-name">Golden Magic Electronics</p>
             <p className="brand-tagline">Your Trusted Partner</p>

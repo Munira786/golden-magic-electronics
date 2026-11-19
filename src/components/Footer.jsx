@@ -5,7 +5,7 @@ export default function Footer() {
         <div className="footer-grid">
           <div className="footer-brand">
             <div className="footer-brand-row">
-              <img src="/logo.png" alt="GME logo" className="footer-logo" />
+              <img src="/logo-sm.png" alt="" width="150" height="124" className="footer-logo" />
               <h4 className="footer-brand-name">Golden Magic Electronics</h4>
             </div>
             <p className="footer-tagline">Your Trusted Partner in Electronics Solutions</p>
