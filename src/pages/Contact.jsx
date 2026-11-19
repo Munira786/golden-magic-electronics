@@ -79,8 +79,8 @@ export default function Contact() {
   return (
     <>
       <Seo
-        title="Contact — Golden Magic Electronics"
-        description="Contact — Golden Magic Electronics - Enterprise technology solutions in the UAE."
+        title="Contact Us & Request a Quote | Golden Magic Electronics"
+        description="Request a quote or technical support for CCTV, networking, cabling and IT services. Call or WhatsApp +971 55 755 7786, or visit our shop in Deira, Dubai."
       />
 
       <section className="contact-hero">
