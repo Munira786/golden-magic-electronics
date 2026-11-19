@@ -15,6 +15,7 @@
 @import "../../css/components/hero.css";
 @import "../../css/components/cards.css";
 @import "../../css/components/forms.css";
+@import "../../css/components/floating.css";
 
 /* Pages */
 @import "../../css/pages/home.css";
