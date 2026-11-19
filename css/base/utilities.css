@@ -176,3 +176,22 @@
   }
 }
 
+/* ========== SKIP LINK ========== */
+/* Off-screen until it receives keyboard focus (first Tab on the page), then shown top-left. */
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: -100px;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.75rem;
+  background: var(--color-blue);
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.25);
+  transition: none; /* appear instantly (all links get a 0.3s transition from reset.css) */
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
