@@ -20,32 +20,53 @@ const FAQS = [
   { q: "Do you provide remote technical support?", a: "Yes, for server, network configuration, and software-related issues, our team can provide secure remote technical support to resolve problems instantly." },
 ];
 
-const SERVICE_OPTIONS = ["CCTV Installation", "Network Setup", "Structured Cabling", "Server Solutions", "IT Maintenance", "Technology Consultation", "Other"];
+const SERVICE_OPTIONS = ["CCTV Installation", "Network Setup", "Structured Cabling", "Server Solutions", "IT Maintenance", "Technology Consultation", "Product Enquiry", "Other"];
+
+// Must match the hidden form's name in index.html, or Netlify will not accept the submission.
+const FORM_NAME = "quote";
+
+const EMPTY_FORM = { name: "", company: "", email: "", phone: "", service: "", location: "", message: "" };
+
+function encodeForm(data) {
+  return new URLSearchParams(data).toString();
+}
 
 export default function Contact() {
   const location = useLocation();
   const prefillInterest = location.state?.interest || "";
-  const [submitted, setSubmitted] = useState(false);
+  // "idle" | "submitting" | "success" | "error"
+  const [status, setStatus] = useState("idle");
+  const [botField, setBotField] = useState("");
   const [form, setForm] = useState({
-    name: "",
-    company: "",
-    email: "",
-    phone: "",
-    service: "",
-    location: "",
+    ...EMPTY_FORM,
+    service: prefillInterest ? "Product Enquiry" : "",
     message: prefillInterest ? `I'm interested in: ${prefillInterest}` : "",
   });
 
   function handleChange(e) {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
+    if (status === "success" || status === "error") setStatus("idle");
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    localStorage.setItem("gme-last-quote", JSON.stringify(form));
-    setSubmitted(true);
-    setForm({ name: "", company: "", email: "", phone: "", service: "", location: "", message: "" });
+    if (status === "submitting") return;
+    setStatus("submitting");
+
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encodeForm({ "form-name": FORM_NAME, "bot-field": botField, ...form }),
+      });
+      if (!response.ok) throw new Error(`Form submission failed with status ${response.status}`);
+      setStatus("success");
+      setForm(EMPTY_FORM);
+    } catch (err) {
+      console.error(err);
+      setStatus("error");
+    }
   }
 
   return (
@@ -140,32 +161,59 @@ export default function Contact() {
               </p>
             </div>
 
-            {submitted && (
-              <div className="form-success">
-                <i className="fa-solid fa-check-circle" aria-hidden="true" style={{ marginRight: "0.5rem" }}></i>
-                Thank you! Your request has been sent. We will contact you shortly.
-              </div>
-            )}
+            <div aria-live="polite">
+              {status === "success" && (
+                <div className="form-success" role="status">
+                  <i className="fa-solid fa-check-circle" aria-hidden="true" style={{ marginRight: "0.5rem" }}></i>
+                  Thank you! Your request has been sent. We will contact you shortly.
+                </div>
+              )}
+              {status === "error" && (
+                <div className="form-error" role="alert">
+                  <i className="fa-solid fa-circle-exclamation" aria-hidden="true" style={{ marginRight: "0.5rem" }}></i>
+                  Sorry, we couldn&apos;t send your request. Please try again, or reach us on{" "}
+                  <a href="https://wa.me/971557557786" target="_blank" rel="noreferrer">WhatsApp</a> or{" "}
+                  <a href="tel:+971557557786">+971 55 755 7786</a>.
+                </div>
+              )}
+            </div>
 
-            <form className="form-grid" onSubmit={handleSubmit}>
+            <form name={FORM_NAME} className="form-grid" onSubmit={handleSubmit}>
+              <div className="form-honeypot" aria-hidden="true">
+                <label htmlFor="bot-field">Leave this field empty</label>
+                <input id="bot-field" name="bot-field" type="text" tabIndex={-1} autoComplete="off" value={botField} onChange={(e) => setBotField(e.target.value)} />
+              </div>
+
               <div className="form-group">
                 <label className="form-label" htmlFor="name">Name *</label>
-                <input id="name" name="name" type="text" required className="form-input" placeholder="John Doe" value={form.name} onChange={handleChange} />
+                <input id="name" name="name" type="text" required maxLength={100} autoComplete="name" className="form-input" placeholder="John Doe" value={form.name} onChange={handleChange} />
               </div>
 
               <div className="form-group">
                 <label className="form-label" htmlFor="company">Company Name</label>
-                <input id="company" name="company" type="text" className="form-input" placeholder="Your Company LLC" value={form.company} onChange={handleChange} />
+                <input id="company" name="company" type="text" maxLength={150} autoComplete="organization" className="form-input" placeholder="Your Company LLC" value={form.company} onChange={handleChange} />
               </div>
 
               <div className="form-group">
                 <label className="form-label" htmlFor="email">Email Address *</label>
-                <input id="email" name="email" type="email" required className="form-input" placeholder="john@company.com" value={form.email} onChange={handleChange} />
+                <input id="email" name="email" type="email" required maxLength={254} autoComplete="email" className="form-input" placeholder="john@company.com" value={form.email} onChange={handleChange} />
               </div>
 
               <div className="form-group">
                 <label className="form-label" htmlFor="phone">Phone Number *</label>
-                <input id="phone" name="phone" type="tel" required className="form-input" placeholder="+971 50 000 0000" value={form.phone} onChange={handleChange} />
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  required
+                  pattern="[0-9+ \(\)\-]{7,20}"
+                  title="Digits, spaces, +, - and brackets only (7–20 characters)"
+                  autoComplete="tel"
+                  className="form-input"
+                  placeholder="+971 50 000 0000"
+                  value={form.phone}
+                  onChange={handleChange}
+                />
               </div>
 
               <div className="form-group">
@@ -180,7 +228,7 @@ export default function Contact() {
 
               <div className="form-group">
                 <label className="form-label" htmlFor="location">Project Location</label>
-                <input id="location" name="location" type="text" className="form-input" placeholder="e.g., Deira, Dubai" value={form.location} onChange={handleChange} />
+                <input id="location" name="location" type="text" maxLength={150} className="form-input" placeholder="e.g., Deira, Dubai" value={form.location} onChange={handleChange} />
               </div>
 
               <div className="form-group full-width">
@@ -189,6 +237,7 @@ export default function Contact() {
                   id="message"
                   name="message"
                   required
+                  maxLength={3000}
                   className="form-input"
                   placeholder="Please describe your requirements or the issue you are facing..."
                   value={form.message}
@@ -197,7 +246,9 @@ export default function Contact() {
               </div>
 
               <div className="form-group full-width">
-                <button type="submit" className="form-submit">Send Request</button>
+                <button type="submit" className="form-submit" disabled={status === "submitting"}>
+                  {status === "submitting" ? "Sending…" : "Send Request"}
+                </button>
               </div>
             </form>
           </div>
