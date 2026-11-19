@@ -132,6 +132,9 @@
   inset: 0;
   z-index: 60;
   visibility: hidden;
+  /* The closed panel sits off-screen to the right (translateX(100%)). Without clipping, mobile browsers
+     widen the layout viewport to include it, so every page renders zoomed-out / scrolls sideways. */
+  overflow: hidden;
 }
 
 .mobile-drawer.is-open {

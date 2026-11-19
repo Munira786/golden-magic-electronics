@@ -6,12 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IT Infrastructure, CCTV & Networking Solutions in Dubai | Golden Magic Electronics</title>
   <meta name="description" content="Professional CCTV installation, networking, structured cabling, server virtualization, and IT support services across Dubai and the UAE.">
-  <link rel="canonical" href="https://www.goldenmagicelectronics.com/">
+  <!-- canonical and og:url are set per page by src/components/Seo.jsx. A hardcoded home-page canonical
+       here would tell search engines every page is a duplicate of the home page. -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#18489A">
+  <meta property="og:site_name" content="Golden Magic Electronics">
   <meta property="og:title" content="IT Infrastructure, CCTV & Networking Solutions in Dubai | Golden Magic Electronics">
   <meta property="og:description" content="Professional CCTV installation, networking, structured cabling, server virtualization, and IT support services across Dubai and the UAE.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.goldenmagicelectronics.com/">
   <meta property="og:image" content="https://www.goldenmagicelectronics.com/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Golden Magic Electronics — IT Infrastructure, CCTV & Networking in Dubai">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="IT Infrastructure, CCTV & Networking Solutions in Dubai | Golden Magic Electronics">
   <meta name="twitter:description" content="Professional CCTV installation, networking, structured cabling, server virtualization, and IT support services across Dubai and the UAE.">
@@ -24,12 +31,7 @@
         "@type": "Organization",
         "name": "Golden Magic Electronics",
         "url": "https://www.goldenmagicelectronics.com/",
-        "logo": "https://www.goldenmagicelectronics.com/logo.png",
-        "sameAs": [
-          "https://www.linkedin.com/company/golden-magic-electronics",
-          "https://www.facebook.com/goldenmagicelectronics",
-          "https://www.instagram.com/goldenmagicelectronics"
-        ]
+        "logo": "https://www.goldenmagicelectronics.com/logo.png"
       },
       {
         "@type": "LocalBusiness",
@@ -60,13 +62,29 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;700;800&family=Poppins:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body>
+  <!--
+    Netlify Forms detects forms by parsing static HTML at deploy time. The real form is rendered
+    by React (src/pages/Contact.jsx), so this hidden copy tells Netlify the form name and fields.
+    Keep the field names here in sync with the React form.
+  -->
+  <form name="quote" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="text" name="name">
+    <input type="text" name="company">
+    <input type="email" name="email">
+    <input type="tel" name="phone">
+    <input type="text" name="service">
+    <input type="text" name="location">
+    <textarea name="message"></textarea>
+    <input type="text" name="bot-field">
+  </form>
+
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
 </body>

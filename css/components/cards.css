@@ -49,6 +49,11 @@ article {
   margin-bottom: 0.5rem;
 }
 
+/* Product names are h2 (they directly follow the page h1); match the old h3 line height. */
+.product-title {
+  line-height: normal;
+}
+
 .service-description,
 .product-description,
 .service-card p {

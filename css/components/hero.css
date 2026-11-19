@@ -6,7 +6,7 @@
   align-items: center;
   overflow: hidden;
   background-color: var(--color-blue);
-  background-image: url("/Banner.png");
+  background-image: url("/banner.webp");
   background-size: cover;
   background-position: 85% center;
   background-repeat: no-repeat;
@@ -230,8 +230,11 @@
   font-size: 1.1rem;
 }
 
+/* h2 on the About page (it directly follows the h1); h3 kept for any other use. */
+.page-hero-card h2,
 .page-hero-card h3 {
   margin-top: 0.5rem;
+  margin-bottom: 0; /* the global h2 rule adds 1rem */
   font-size: 1.5rem;
   line-height: 1.1;
 }

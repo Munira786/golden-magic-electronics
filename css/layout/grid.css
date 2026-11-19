@@ -4,8 +4,10 @@
   padding: 3rem 1.5rem;
 }
 
-main {
-  padding-bottom: 2rem;
+/* <main> wraps every page (src/App.jsx). It receives focus from code (skip link, route changes),
+   which is not a user action on an interactive control, so no focus ring is drawn on it. */
+main:focus {
+  outline: none;
 }
 
 .section-gap {
