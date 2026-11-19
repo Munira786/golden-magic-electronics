@@ -249,7 +249,7 @@ export default function Services() {
         <section className="section-gap">
           <div className="coverage-panel-dark">
             <p className="coverage-eyebrow"><i className="fa-solid fa-globe" aria-hidden="true"></i> Nationwide Availability</p>
-            <h2 style={{ color: "white", fontSize: "2.5rem" }}>Supporting Businesses Across the UAE</h2>
+            <h2 style={{ color: "white", fontSize: "clamp(1.75rem, 5vw, 2.5rem)" }}>Supporting Businesses Across the UAE</h2>
             <p style={{ color: "rgba(255,255,255,0.8)", fontSize: "1.15rem" }}>On-site and remote support available throughout all Emirates</p>
             <div className="coverage-grid">
               {CITIES.map((city) => (
