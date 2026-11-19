@@ -1,6 +1,8 @@
+import { Link, useLocation } from "react-router-dom";
 import Seo from "../components/Seo.jsx";
 import Button from "../components/Button.jsx";
 import Reveal from "../components/Reveal.jsx";
+import { SERVICES } from "../data/services.js";
 
 const DELIVERY_STEPS = [
   { title: "Consultation & Discovery", text: "Deep dive into your business requirements, identifying bottlenecks and areas for technological improvement." },
@@ -63,6 +65,9 @@ const SUPPORT = [
 const CITIES = ["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Ras Al Khaimah", "Fujairah", "Umm Al Quwain"];
 
 export default function Services() {
+  const { hash } = useLocation();
+  const targetAnchor = hash.slice(1);
+
   return (
     <>
       <Seo
@@ -100,6 +105,51 @@ export default function Services() {
                 <span>Infrastructure</span>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section className="section-gap" aria-labelledby="our-services-heading">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <p className="section-label">What We Offer</p>
+            <h2 id="our-services-heading" className="section-title">Our Services</h2>
+            <p className="section-subtitle mt-4">
+              End-to-end technology services for offices, retail, warehouses, and commercial sites across the UAE.
+            </p>
+          </div>
+          <div className="services-grid">
+            {SERVICES.map((service) => (
+              // The id is the target of the Home page "Learn More" links (/services#<anchor>).
+              <article
+                id={service.anchor}
+                className={`service-card-premium service-anchor-card${service.anchor === targetAnchor ? " is-targeted" : ""}`}
+                key={service.anchor}
+              >
+                <div className="service-icon-container">
+                  <i className={`fa-solid ${service.icon}`} aria-hidden="true"></i>
+                </div>
+                <h3 className="service-title">{service.title}</h3>
+                <p className="service-description">{service.description}</p>
+                <div>
+                  <p className="service-includes-label">Includes:</p>
+                  <ul className="service-includes-list">
+                    {service.includes.map((item) => (
+                      <li key={item}>
+                        <i className="fa-solid fa-check" aria-hidden="true"></i>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <Link
+                  to={{ pathname: "/contact", hash: "#quoteForm" }}
+                  state={{ service: service.title }}
+                  className="btn btn-primary btn-sm"
+                  style={{ marginTop: "auto" }}
+                >
+                  Request a Quote
+                </Link>
+              </article>
+            ))}
           </div>
         </section>
 
@@ -199,7 +249,7 @@ export default function Services() {
         <section className="section-gap">
           <div className="coverage-panel-dark">
             <p className="coverage-eyebrow"><i className="fa-solid fa-globe" aria-hidden="true"></i> Nationwide Availability</p>
-            <h2 style={{ color: "white", fontSize: "2.5rem" }}>Supporting Businesses Across the UAE</h2>
+            <h2 style={{ color: "white", fontSize: "clamp(1.75rem, 5vw, 2.5rem)" }}>Supporting Businesses Across the UAE</h2>
             <p style={{ color: "rgba(255,255,255,0.8)", fontSize: "1.15rem" }}>On-site and remote support available throughout all Emirates</p>
             <div className="coverage-grid">
               {CITIES.map((city) => (

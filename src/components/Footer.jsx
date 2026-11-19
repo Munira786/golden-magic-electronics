@@ -1,12 +1,27 @@
+import { Link } from "react-router-dom";
+import { CONTACT, TRADE_LICENSE } from "../config/site.js";
+import { analyticsEnabled, openConsentSettings } from "../lib/analytics.js";
+
+const QUICK_LINKS = [
+  { to: "/", label: "Home" },
+  { to: "/about", label: "About Us" },
+  { to: "/services", label: "Services" },
+  { to: "/products", label: "Products" },
+  { to: "/contact", label: "Contact & Quote" },
+];
+
 export default function Footer() {
+  const year = new Date().getFullYear();
+
   return (
     <footer className="site-footer">
       <div className="container footer-inner">
         <div className="footer-grid">
           <div className="footer-brand">
             <div className="footer-brand-row">
-              <img src="/logo.png" alt="GME logo" className="footer-logo" />
-              <h4 className="footer-brand-name">Golden Magic Electronics</h4>
+              {/* Decorative: the company name is written right next to it. */}
+              <img src="/logo-sm.png" alt="" width="150" height="124" className="footer-logo" />
+              <p className="footer-brand-name">Golden Magic Electronics</p>
             </div>
             <p className="footer-tagline">Your Trusted Partner in Electronics Solutions</p>
             <p className="footer-copy">
@@ -15,27 +30,54 @@ export default function Footer() {
             </p>
           </div>
 
+          <nav aria-label="Footer">
+            <h2 className="footer-heading">Quick Links</h2>
+            <ul className="footer-links">
+              {QUICK_LINKS.map((link) => (
+                <li key={link.to}>
+                  <Link to={link.to}>{link.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
           <div>
-            <h4 className="footer-heading">Contact Info</h4>
-            <div className="footer-contact-list">
+            <h2 className="footer-heading">Contact Info</h2>
+            <address className="footer-contact-list">
               <div className="footer-contact-item">
                 <i className="fa-solid fa-map-pin" aria-hidden="true"></i>
-                <p>Shop No.6, Behind ALTAJ Studio, Deira, Dubai</p>
+                <p>{CONTACT.address}</p>
               </div>
               <div className="footer-contact-item">
                 <i className="fa-solid fa-envelope" aria-hidden="true"></i>
-                <a href="mailto:gme786@gmail.com">gme786@gmail.com</a>
+                <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
               </div>
               <div className="footer-contact-item">
                 <i className="fa-solid fa-phone" aria-hidden="true"></i>
-                <a dir="ltr" href="tel:+971557557786">+971 55 755 7786</a>
+                <a dir="ltr" href={`tel:${CONTACT.phone}`}>{CONTACT.phoneDisplay}</a>
               </div>
-            </div>
+              <div className="footer-contact-item">
+                <i className="fa-solid fa-clock" aria-hidden="true"></i>
+                <p>{CONTACT.hours}</p>
+              </div>
+            </address>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; 2026 Golden Magic Electronics. All rights reserved.</p>
+          <p>&copy; {year} Golden Magic Electronics. All rights reserved.</p>
+          {TRADE_LICENSE && <p>Dubai Trade Licence No. {TRADE_LICENSE}</p>}
+          <p className="footer-legal">
+            <Link to="/privacy">Privacy Policy</Link>
+            {analyticsEnabled && (
+              <>
+                <span aria-hidden="true">·</span>
+                <button type="button" className="footer-link-button" onClick={openConsentSettings}>
+                  Cookie Settings
+                </button>
+              </>
+            )}
+          </p>
         </div>
       </div>
     </footer>

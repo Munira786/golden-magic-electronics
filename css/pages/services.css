@@ -261,3 +261,15 @@
   line-height: 1.7;
   margin-bottom: 2.5rem;
 }
+
+/* Service cards on the Services page are anchor targets (/services#<anchor> from the Home page).
+   scroll-margin keeps the card clear of the sticky header; .is-targeted highlights the card the visitor
+   asked for. (CSS :target is not used because React Router's pushState navigation does not update it.) */
+.service-anchor-card {
+  scroll-margin-top: 6rem;
+}
+
+.service-anchor-card.is-targeted {
+  border-color: var(--color-green);
+  box-shadow: 0 0 0 3px var(--color-green-soft), var(--shadow-lg);
+}

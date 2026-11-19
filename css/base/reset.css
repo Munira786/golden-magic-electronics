@@ -11,10 +11,6 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
-html[dir="rtl"] {
-  font-family: var(--font-arabic);
-}
-
 body {
   background: #ffffff;
   color: var(--color-ink);

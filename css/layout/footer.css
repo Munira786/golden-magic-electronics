@@ -11,9 +11,9 @@
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 65% 35%;
-  gap: 1rem;
-  max-width: 960px;
+  grid-template-columns: 1.4fr 0.8fr 1.2fr;
+  gap: 2.5rem;
+  max-width: 1100px;
   margin: 0 auto 2rem;
   align-items: start;
 }
@@ -64,6 +64,7 @@
 }
 
 .footer-contact-list {
+  font-style: normal; /* <address> is italic by default */
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -100,10 +101,56 @@
   color: var(--slate-500);
 }
 
+.footer-bottom p + p {
+  margin-top: 0.35rem;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer-links a {
+  color: var(--slate-600);
+  font-size: 0.9rem;
+}
+
+.footer-links a:hover,
+.footer-legal a:hover,
+.footer-link-button:hover {
+  color: var(--color-blue);
+  text-decoration: underline;
+}
+
+.footer-legal {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.footer-legal a,
+.footer-link-button {
+  color: var(--slate-600);
+}
+
+.footer-link-button {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
 @media (max-width: 1024px) {
   .footer-grid {
     grid-template-columns: 1fr 1fr;
     max-width: 820px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
   }
 }
 

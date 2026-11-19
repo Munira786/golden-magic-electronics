@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Public pages only. Blog and Careers are left out until they have real content.
+     Add new routes here when pages are added to src/App.jsx. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.goldenmagicelectronics.com/</loc><lastmod>2026-11-19</lastmod></url>
+  <url><loc>https://www.goldenmagicelectronics.com/services</loc><lastmod>2026-11-19</lastmod></url>
+  <url><loc>https://www.goldenmagicelectronics.com/products</loc><lastmod>2026-11-19</lastmod></url>
+  <url><loc>https://www.goldenmagicelectronics.com/about</loc><lastmod>2026-11-19</lastmod></url>
+  <url><loc>https://www.goldenmagicelectronics.com/contact</loc><lastmod>2026-11-19</lastmod></url>
+  <url><loc>https://www.goldenmagicelectronics.com/privacy</loc><lastmod>2026-11-19</lastmod></url>
+</urlset>

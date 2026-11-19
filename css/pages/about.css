@@ -157,3 +157,15 @@
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.25rem;
 }
+
+/* "Our Story" two-column layout. Lives in CSS (not an inline style) so it can collapse on small screens. */
+.about-story-grid {
+  grid-template-columns: 0.95fr 0.75fr;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .about-story-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -83,7 +83,7 @@ export default function About() {
             <div className="page-hero-visual">
               <div className="page-hero-image-wrapper">
                 <div className="page-hero-image-frame">
-                  <img src="/about_page_img.png" alt="Golden Magic Electronics technology infrastructure" loading="lazy" />
+                  <img src="/about.webp" width="1536" height="1024" alt="Golden Magic Electronics technology infrastructure" fetchpriority="high" />
                 </div>
                 <div className="page-hero-card">
                   <div className="page-hero-card-icon">
@@ -101,7 +101,7 @@ export default function About() {
         </section>
 
         <section className="section-gap">
-          <div className="grid" style={{ gridTemplateColumns: "0.95fr 0.75fr", alignItems: "start" }}>
+          <div className="grid about-story-grid">
             <div>
               <p className="section-label">Our Story</p>
               <h2 className="section-title" style={{ margin: "0 0 0.75rem", textAlign: "left" }}>
@@ -199,7 +199,7 @@ export default function About() {
           <div className="max-w-4xl mx-auto">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <p className="section-label" style={{ color: "rgba(255,255,255,0.8)" }}>Our Competitive Advantage</p>
-              <h2 style={{ color: "white", fontSize: "2.25rem" }}>Why Choose Golden Magic Electronics</h2>
+              <h2 style={{ color: "white", fontSize: "clamp(1.6rem, 5vw, 2.25rem)" }}>Why Choose Golden Magic Electronics</h2>
             </div>
             <div className="grid cols-2">
               {ADVANTAGES.map((item) => (
@@ -267,7 +267,7 @@ export default function About() {
             <div style={{ display: "inline-flex", height: "4rem", width: "4rem", alignItems: "center", justifyContent: "center", borderRadius: "9999px", background: "rgba(24,72,154,0.1)", color: "var(--color-blue)", marginBottom: "1.5rem" }}>
               <i className="fa-solid fa-handshake-angle" aria-hidden="true"></i>
             </div>
-            <h2 style={{ fontSize: "2.5rem" }}>Let's Build the Future of Your IT Infrastructure</h2>
+            <h2 style={{ fontSize: "clamp(1.75rem, 5vw, 2.5rem)" }}>Let's Build the Future of Your IT Infrastructure</h2>
             <p className="mt-4" style={{ fontSize: "1.1rem", color: "var(--slate-600)", lineHeight: 1.8 }}>
               Partner with a team that has delivered excellence since 2005. Whether expanding your office or
               upgrading enterprise security, our experts are here to design a custom blueprint for your success.

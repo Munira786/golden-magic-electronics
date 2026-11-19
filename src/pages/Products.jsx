@@ -1,7 +1,7 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Seo from "../components/Seo.jsx";
-import { useCart } from "../context/CartContext.jsx";
+
+const WHATSAPP_NUMBER = "971557557786";
 
 const PRODUCTS = [
   { id: "prd-laptop", name: "Business Laptop", description: "Reliable laptop for office productivity, administration, and sales teams.", price: 2899, icon: "fa-laptop" },
@@ -17,18 +17,12 @@ function formatAED(value) {
 }
 
 function ProductCard({ product }) {
-  const { addToCart } = useCart();
   const navigate = useNavigate();
-  const [added, setAdded] = useState(false);
+  const whatsappText = encodeURIComponent(`Hello, I'd like a quotation for: ${product.name}`);
 
-  function handleAddToCart() {
-    addToCart(product);
-    setAdded(true);
-    setTimeout(() => setAdded(false), 1800);
-  }
-
-  function handleRequestCallback() {
-    navigate("/contact", { state: { interest: product.name } });
+  function handleRequestQuote() {
+    // The hash makes ScrollToTop jump straight to the form; state pre-fills it with this product.
+    navigate({ pathname: "/contact", hash: "#quoteForm" }, { state: { interest: product.name } });
   }
 
   return (
@@ -40,17 +34,21 @@ function ProductCard({ product }) {
       <p className="product-description">{product.description}</p>
       <div className="product-tags">
         <span className="product-tag">🇦🇪 Local Delivery</span>
-        <span className="product-tag">Halal / Shariah Compliant</span>
       </div>
       <p className="product-price">{formatAED(product.price)}</p>
       <p className="product-vat">Inclusive of VAT</p>
       <div className="product-actions">
-        <button type="button" className="btn btn-primary btn-sm" onClick={handleAddToCart}>
-          {added ? "Added ✓" : `Add to Cart`}
+        <button type="button" className="btn btn-primary btn-sm" onClick={handleRequestQuote}>
+          Request Quote
         </button>
-        <button type="button" className="btn btn-outline btn-sm" onClick={handleRequestCallback}>
-          Request Callback
-        </button>
+        <a
+          href={`https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappText}`}
+          target="_blank"
+          rel="noreferrer"
+          className="btn btn-outline btn-sm"
+        >
+          <i className="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp
+        </a>
       </div>
     </article>
   );
