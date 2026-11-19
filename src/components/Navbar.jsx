@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 
 const LINKS = [
   { to: "/", label: "Home", end: true },
@@ -9,18 +9,87 @@ const LINKS = [
   { to: "/contact", label: "Contact" },
 ];
 
+// Must match the desktop breakpoint in css/layout/header.css, where the drawer is display: none.
+const DESKTOP_QUERY = "(min-width: 1024px)";
+
 function navClass({ isActive }) {
   return `nav-link${isActive ? " active" : ""}`;
 }
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const { pathname } = useLocation();
+  const [previousPathname, setPreviousPathname] = useState(pathname);
+  const menuButtonRef = useRef(null);
+  const panelRef = useRef(null);
+  const closeButtonRef = useRef(null);
 
+  function closeMenu() {
+    setOpen(false);
+    menuButtonRef.current?.focus(); // return focus to where the user opened the menu
+  }
+
+  // Close on any page change, including the browser Back/Forward buttons. Without this, going Back
+  // with the menu open left it "open" and the page scroll-locked.
+  // Done during render (React's "adjust state when a prop changes" pattern) rather than in an
+  // effect, which would render the new page once with the menu still open and then again closed.
+  if (pathname !== previousPathname) {
+    setPreviousPathname(pathname);
+    setOpen(false);
+  }
+
+  // Lock page scroll behind the open drawer.
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
+  }, [open]);
+
+  // At desktop width the drawer is hidden by CSS, so close it or the scroll lock would stay on.
+  useEffect(() => {
+    const mq = window.matchMedia(DESKTOP_QUERY);
+    const onChange = (event) => {
+      if (event.matches) setOpen(false);
+    };
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
+  // While open: move focus into the drawer, close on Escape, and keep Tab / Shift+Tab inside it
+  // (a modal dialog must not let keyboard focus wander to the page hidden behind it).
+  useEffect(() => {
+    if (!open) return undefined;
+    closeButtonRef.current?.focus();
+
+    function onKeyDown(event) {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeMenu();
+        return;
+      }
+      if (event.key !== "Tab" || !panelRef.current) return;
+
+      const focusable = panelRef.current.querySelectorAll("a[href], button:not([disabled])");
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      const active = document.activeElement;
+
+      if (!panelRef.current.contains(active)) {
+        event.preventDefault();
+        first.focus();
+      } else if (event.shiftKey && active === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && active === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
   }, [open]);
 
   return (
@@ -49,21 +118,37 @@ export default function Navbar() {
         </div>
 
         <button
+          ref={menuButtonRef}
+          type="button"
           className="mobile-menu-btn"
           aria-label="Open menu"
           aria-expanded={open}
+          aria-controls="mobile-menu"
           onClick={() => setOpen(true)}
         >
           <i className="fa-solid fa-bars" aria-hidden="true"></i>
         </button>
       </div>
 
-      <div className={`mobile-drawer${open ? " is-open" : ""}`} aria-modal="true">
-        <div className="mobile-drawer-overlay" onClick={() => setOpen(false)}></div>
-        <div className="mobile-drawer-panel">
+      <div className={`mobile-drawer${open ? " is-open" : ""}`}>
+        <div className="mobile-drawer-overlay" aria-hidden="true" onClick={closeMenu}></div>
+        <div
+          ref={panelRef}
+          id="mobile-menu"
+          className="mobile-drawer-panel"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="mobile-menu-title"
+        >
           <div className="mobile-drawer-header">
-            <p className="brand-name">Menu</p>
-            <button className="mobile-drawer-close" aria-label="Close menu" onClick={() => setOpen(false)}>
+            <p id="mobile-menu-title" className="brand-name">Menu</p>
+            <button
+              ref={closeButtonRef}
+              type="button"
+              className="mobile-drawer-close"
+              aria-label="Close menu"
+              onClick={closeMenu}
+            >
               <i className="fa-solid fa-xmark" aria-hidden="true"></i>
             </button>
           </div>
@@ -74,6 +159,7 @@ export default function Navbar() {
                 to={link.to}
                 end={link.end}
                 className={navClass}
+                // Also closes when the link is the current page (no route change to trigger the effect).
                 onClick={() => setOpen(false)}
               >
                 {link.label}

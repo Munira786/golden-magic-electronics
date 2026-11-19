@@ -30,7 +30,7 @@ function ProductCard({ product }) {
       <div className="product-icon-container">
         <i className={`fa-solid ${product.icon}`} aria-hidden="true"></i>
       </div>
-      <h3 className="product-title">{product.name}</h3>
+      <h2 className="product-title">{product.name}</h2>
       <p className="product-description">{product.description}</p>
       <div className="product-tags">
         <span className="product-tag">🇦🇪 Local Delivery</span>
@@ -58,8 +58,8 @@ export default function Products() {
   return (
     <>
       <Seo
-        title="Products — Golden Magic Electronics"
-        description="Products — Golden Magic Electronics - Enterprise technology solutions in the UAE."
+        title="Business IT & Security Products in Dubai | Golden Magic Electronics"
+        description="Business laptops, CCTV cameras and NVR recorders, network switches, structured cabling kits and IP phones, supplied with local delivery in the UAE. Request a quote."
       />
 
       <div className="page-content">

@@ -71,8 +71,8 @@ export default function Services() {
   return (
     <>
       <Seo
-        title="Services — Golden Magic Electronics"
-        description="Services — Golden Magic Electronics - Enterprise technology solutions in the UAE."
+        title="IT, CCTV & Networking Services in Dubai | Golden Magic Electronics"
+        description="CCTV installation, structured cabling, office network and Wi-Fi setup, server virtualization, IP telephony and annual IT maintenance for businesses in Dubai and across the UAE."
       />
 
       <div className="page-content">

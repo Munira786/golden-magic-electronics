@@ -91,7 +91,7 @@ export default function About() {
                   </div>
                   <div>
                     <p className="eyebrow" style={{ marginBottom: "0" }}>Enterprise Solutions</p>
-                    <h3>Dubai IT Infrastructure</h3>
+                    <h2>Dubai IT Infrastructure</h2>
                     <p>Professional deployment and support for CCTV, networking, structured cabling, and server systems.</p>
                   </div>
                 </div>
