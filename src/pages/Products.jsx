@@ -30,7 +30,7 @@ function ProductCard({ product }) {
       <div className="product-icon-container">
         <i className={`fa-solid ${product.icon}`} aria-hidden="true"></i>
       </div>
-      <h3 className="product-title">{product.name}</h3>
+      <h2 className="product-title">{product.name}</h2>
       <p className="product-description">{product.description}</p>
       <div className="product-tags">
         <span className="product-tag">🇦🇪 Local Delivery</span>
