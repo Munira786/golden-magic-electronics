@@ -19,6 +19,7 @@ function navClass({ isActive }) {
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
+  const [previousPathname, setPreviousPathname] = useState(pathname);
   const menuButtonRef = useRef(null);
   const panelRef = useRef(null);
   const closeButtonRef = useRef(null);
@@ -30,9 +31,12 @@ export default function Navbar() {
 
   // Close on any page change, including the browser Back/Forward buttons. Without this, going Back
   // with the menu open left it "open" and the page scroll-locked.
-  useEffect(() => {
+  // Done during render (React's "adjust state when a prop changes" pattern) rather than in an
+  // effect, which would render the new page once with the menu still open and then again closed.
+  if (pathname !== previousPathname) {
+    setPreviousPathname(pathname);
     setOpen(false);
-  }, [pathname]);
+  }
 
   // Lock page scroll behind the open drawer.
   useEffect(() => {
