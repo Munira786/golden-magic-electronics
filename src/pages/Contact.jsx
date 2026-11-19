@@ -3,6 +3,8 @@ import { useLocation } from "react-router-dom";
 import Seo from "../components/Seo.jsx";
 import Button from "../components/Button.jsx";
 import Reveal from "../components/Reveal.jsx";
+import { SERVICES } from "../data/services.js";
+import { MAP_DIRECTIONS_URL, MAP_EMBED_URL } from "../config/site.js";
 
 const SUPPORT_TIMELINE = [
   { icon: "fa-headset", title: "Technical Support", text: "Rapid troubleshooting and assistance for networking, server, and CCTV issues. Available remotely and on-site." },
@@ -20,7 +22,7 @@ const FAQS = [
   { q: "Do you provide remote technical support?", a: "Yes, for server, network configuration, and software-related issues, our team can provide secure remote technical support to resolve problems instantly." },
 ];
 
-const SERVICE_OPTIONS = ["CCTV Installation", "Network Setup", "Structured Cabling", "Server Solutions", "IT Maintenance", "Technology Consultation", "Product Enquiry", "Other"];
+const SERVICE_OPTIONS = [...SERVICES.map((service) => service.title), "Product Enquiry", "Other"];
 
 // Must match the hidden form's name in index.html, or Netlify will not accept the submission.
 const FORM_NAME = "quote";
@@ -33,13 +35,15 @@ function encodeForm(data) {
 
 export default function Contact() {
   const location = useLocation();
+  // Pre-fill from Products ("interest" = product name) or Services ("service" = service title).
   const prefillInterest = location.state?.interest || "";
+  const prefillService = SERVICE_OPTIONS.includes(location.state?.service) ? location.state.service : "";
   // "idle" | "submitting" | "success" | "error"
   const [status, setStatus] = useState("idle");
   const [botField, setBotField] = useState("");
   const [form, setForm] = useState({
     ...EMPTY_FORM,
-    service: prefillInterest ? "Product Enquiry" : "",
+    service: prefillService || (prefillInterest ? "Product Enquiry" : ""),
     message: prefillInterest ? `I'm interested in: ${prefillInterest}` : "",
   });
 
@@ -260,7 +264,7 @@ export default function Contact() {
           <iframe
             className="map-embed"
             title="Golden Magic Electronics location"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14434.614660352528!2d55.3059881643444!3d25.271923145890884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43477d6118b7%3A0x8670a53b2693fa95!2sDeira%20-%20Dubai%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2sus!4v1714421102927!5m2!1sen!2sus"
+            src={MAP_EMBED_URL}
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
@@ -273,7 +277,7 @@ export default function Contact() {
             <p style={{ fontWeight: 600, color: "var(--slate-700)", marginBottom: "0.25rem" }}>Golden Magic Electronics</p>
             <p style={{ color: "var(--slate-600)" }}>Shop No. 6, Behind ALTAJ Studio<br />Deira, Dubai, UAE</p>
             <div className="mt-6">
-              <Button href="https://maps.google.com" variant="primary" icon="fa-map-location-dot">
+              <Button href={MAP_DIRECTIONS_URL} target="_blank" rel="noreferrer" variant="primary" icon="fa-map-location-dot">
                 Get Directions
               </Button>
             </div>

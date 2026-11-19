@@ -42,3 +42,10 @@
     grid-template-columns: 1fr;
   }
 }
+
+.not-found {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

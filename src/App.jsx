@@ -10,6 +10,7 @@ import Products from "./pages/Products.jsx";
 import Contact from "./pages/Contact.jsx";
 import Blog from "./pages/Blog.jsx";
 import Careers from "./pages/Careers.jsx";
+import NotFound from "./pages/NotFound.jsx";
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/careers" element={<Careers />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </>

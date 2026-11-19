@@ -34,7 +34,6 @@ function ProductCard({ product }) {
       <p className="product-description">{product.description}</p>
       <div className="product-tags">
         <span className="product-tag">🇦🇪 Local Delivery</span>
-        <span className="product-tag">Halal / Shariah Compliant</span>
       </div>
       <p className="product-price">{formatAED(product.price)}</p>
       <p className="product-vat">Inclusive of VAT</p>
