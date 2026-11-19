@@ -5,6 +5,7 @@ import Button from "../components/Button.jsx";
 import Reveal from "../components/Reveal.jsx";
 import { SERVICES } from "../data/services.js";
 import { MAP_DIRECTIONS_URL, MAP_EMBED_URL } from "../config/site.js";
+import { trackEvent } from "../lib/analytics.js";
 
 const SUPPORT_TIMELINE = [
   { icon: "fa-headset", title: "Technical Support", text: "Rapid troubleshooting and assistance for networking, server, and CCTV issues. Available remotely and on-site." },
@@ -66,6 +67,8 @@ export default function Contact() {
       });
       if (!response.ok) throw new Error(`Form submission failed with status ${response.status}`);
       setStatus("success");
+      // GA4's recommended lead event; mark it as a "key event" in GA4 to count it as a conversion.
+      trackEvent("generate_lead", { form: FORM_NAME, service: form.service || "unspecified" });
       setForm(EMPTY_FORM);
     } catch (err) {
       console.error(err);

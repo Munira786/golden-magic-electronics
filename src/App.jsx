@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import WhatsAppButton from "./components/WhatsAppButton.jsx";
+import ConsentBanner from "./components/ConsentBanner.jsx";
 
 import Home from "./pages/Home.jsx";
 import About from "./pages/About.jsx";
@@ -11,6 +12,7 @@ import Products from "./pages/Products.jsx";
 import Contact from "./pages/Contact.jsx";
 import Blog from "./pages/Blog.jsx";
 import Careers from "./pages/Careers.jsx";
+import Privacy from "./pages/Privacy.jsx";
 import NotFound from "./pages/NotFound.jsx";
 
 export default function App() {
@@ -26,10 +28,12 @@ export default function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/careers" element={<Careers />} />
+        <Route path="/privacy" element={<Privacy />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
       <WhatsAppButton />
+      <ConsentBanner />
     </>
   );
 }

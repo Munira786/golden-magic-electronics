@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App.jsx";
+import { initAnalytics } from "./lib/analytics.js";
 
 import "./styles/index.css";
 
@@ -15,6 +16,9 @@ iconStyles.integrity = "sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb
 iconStyles.crossOrigin = "anonymous";
 iconStyles.referrerPolicy = "no-referrer";
 document.head.appendChild(iconStyles);
+
+// Loads GA4 only if a Measurement ID is configured AND the visitor accepted cookies earlier.
+initAnalytics();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

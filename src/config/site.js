@@ -14,6 +14,13 @@ export const CONTACT = {
   hours: "Mon – Sat, 9:00 AM – 7:00 PM (GST)",
 };
 
+// TODO(owner): add the Dubai trade licence number. The footer shows it only when this is set.
+export const TRADE_LICENSE = "";
+
+// GA4 Measurement ID comes from the VITE_GA_MEASUREMENT_ID environment variable (set in Netlify).
+// When it is empty, analytics and the cookie consent banner are both switched off.
+export const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID || "";
+
 // Used for the Contact page map embed and the "Get Directions" link.
 // TODO(owner): replace with the shop's exact Google Maps place link once confirmed.
 export const MAP_QUERY = "Golden Magic Electronics, Deira, Dubai";
