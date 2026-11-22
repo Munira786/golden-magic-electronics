@@ -56,10 +56,10 @@ const PROJECTS = [
 
 const SUPPORT = [
   { icon: "fa-wrench", title: "Preventive Maintenance", text: "Regular system checks, updates, and performance optimization to prevent issues before they occur." },
-  { icon: "fa-phone", title: "Emergency Support", text: "24/7 technical assistance for critical issues with rapid response and resolution." },
+  { icon: "fa-phone", title: "Emergency Support", text: "Priority assistance for critical issues, with rapid response during working hours (Mon – Sat, 8 AM – 8 PM)." },
   { icon: "fa-laptop", title: "Remote Assistance", text: "Quick remote access and troubleshooting for faster issue resolution without on-site visits." },
   { icon: "fa-user-check", title: "On-Site Support", text: "Professional technicians available for complex issues and hands-on system management." },
-  { icon: "fa-heartbeat", title: "System Monitoring", text: "Continuous monitoring of infrastructure health, security, and performance metrics." },
+  { icon: "fa-heartbeat", title: "System Monitoring", text: "Regular monitoring of infrastructure health, security, and performance metrics." },
   { icon: "fa-handshake", title: "AMC Contracts", text: "Flexible annual maintenance contracts with guaranteed service levels and support terms." },
 ];
 
