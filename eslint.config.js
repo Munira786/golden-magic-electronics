@@ -36,9 +36,15 @@ export default defineConfig([
     },
   },
 
-  // Config files run in Node.
+  // Build-time server entry (scripts/prerender.js): exports a render function, never hot-reloaded.
   {
-    files: ["*.config.js"],
+    files: ["src/entry-server.jsx"],
+    rules: { "react-refresh/only-export-components": "off" },
+  },
+
+  // Config files and build scripts run in Node.
+  {
+    files: ["*.config.js", "scripts/**/*.js"],
     extends: [js.configs.recommended],
     languageOptions: { ecmaVersion: "latest", sourceType: "module", globals: globals.node },
   },
