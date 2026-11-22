@@ -3,6 +3,7 @@ import Seo from "../components/Seo.jsx";
 import Button from "../components/Button.jsx";
 import Reveal from "../components/Reveal.jsx";
 import { SERVICES } from "../data/services.js";
+import useHydrated from "../hooks/useHydrated.js";
 
 const DELIVERY_STEPS = [
   { title: "Consultation & Discovery", text: "Deep dive into your business requirements, identifying bottlenecks and areas for technological improvement." },
@@ -66,7 +67,10 @@ const CITIES = ["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Ras Al Khaimah", "Fuj
 
 export default function Services() {
   const { hash } = useLocation();
-  const targetAnchor = hash.slice(1);
+  // The #hash never reaches the server, so only highlight after hydration (keeps the pre-rendered
+  // HTML and the first browser render identical).
+  const hydrated = useHydrated();
+  const targetAnchor = hydrated ? hash.slice(1) : "";
 
   return (
     <>

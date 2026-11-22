@@ -16,7 +16,7 @@ export default defineConfig([
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
-      globals: globals.browser,
+      globals: { ...globals.browser, __BUILD_YEAR__: "readonly" }, // __BUILD_YEAR__: see vite.config.js
       parserOptions: { ecmaFeatures: { jsx: true } },
     },
     rules: {
