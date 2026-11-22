@@ -5,15 +5,8 @@ import ScrollToTop from "./components/ScrollToTop.jsx";
 import WhatsAppButton from "./components/WhatsAppButton.jsx";
 import ConsentBanner from "./components/ConsentBanner.jsx";
 
-import Home from "./pages/Home.jsx";
-import About from "./pages/About.jsx";
-import Services from "./pages/Services.jsx";
-import Products from "./pages/Products.jsx";
-import Contact from "./pages/Contact.jsx";
-import Blog from "./pages/Blog.jsx";
-import Careers from "./pages/Careers.jsx";
-import Privacy from "./pages/Privacy.jsx";
 import NotFound from "./pages/NotFound.jsx";
+import { ROUTES } from "./routes.js";
 
 function skipToMain(event) {
   event.preventDefault();
@@ -35,14 +28,9 @@ export default function App() {
       {/* tabIndex -1: focusable from code (skip link, route changes) but not part of the Tab order. */}
       <main id="main" tabIndex={-1}>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/careers" element={<Careers />} />
-          <Route path="/privacy" element={<Privacy />} />
+          {ROUTES.map(({ path, Component }) => (
+            <Route key={path} path={path} element={<Component />} />
+          ))}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

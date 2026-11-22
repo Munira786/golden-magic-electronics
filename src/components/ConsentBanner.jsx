@@ -1,18 +1,25 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { OPEN_CONSENT_EVENT, analyticsEnabled, getConsent, setConsent } from "../lib/analytics.js";
+import useHydrated from "../hooks/useHydrated.js";
 
 // Asks once for analytics consent. Google Analytics is not loaded until the visitor clicks Accept.
 // Re-opened from "Cookie Settings" in the footer or the Privacy Policy.
 export default function ConsentBanner() {
-  const [open, setOpen] = useState(() => analyticsEnabled && !getConsent());
+  // The saved choice lives in localStorage, which does not exist when pages are pre-rendered, so the
+  // banner is never part of the pre-rendered HTML; it appears right after hydration if needed.
+  const hydrated = useHydrated();
+  const [answered, setAnswered] = useState(false);
+  const [reopened, setReopened] = useState(false);
 
   useEffect(() => {
     if (!analyticsEnabled) return undefined;
-    const reopen = () => setOpen(true);
+    const reopen = () => setReopened(true);
     window.addEventListener(OPEN_CONSENT_EVENT, reopen);
     return () => window.removeEventListener(OPEN_CONSENT_EVENT, reopen);
   }, []);
+
+  const open = analyticsEnabled && hydrated && (reopened || (!answered && !getConsent()));
 
   // Lets other fixed elements (the WhatsApp button) move out of the banner's way.
   useEffect(() => {
@@ -24,7 +31,8 @@ export default function ConsentBanner() {
 
   function choose(value) {
     setConsent(value);
-    setOpen(false);
+    setAnswered(true);
+    setReopened(false);
   }
 
   return (
