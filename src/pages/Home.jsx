@@ -48,7 +48,7 @@ export default function Home() {
               <span>✓ 20+ Years Experience</span>
               <span>✓ 500+ Projects Completed</span>
               <span>✓ 200+ Business Clients</span>
-              <span>✓ 24/7 Technical Support</span>
+              <span>✓ Open Mon – Sat, 8 AM – 8 PM</span>
             </div>
             <div className="home-hero-ctas">
               <Button to="/contact" variant="primary">Get Free Site Assessment</Button>

@@ -11,8 +11,14 @@ export const CONTACT = {
   whatsapp: "971557557786",
   email: "gme786@gmail.com",
   address: "Shop No.6, Behind ALTAJ Studio, Deira, Dubai, UAE",
-  hours: "Mon – Sat, 9:00 AM – 7:00 PM (GST)",
+  hoursDays: "Mon – Sat",
+  hoursTime: "8:00 AM – 8:00 PM",
+  hours: "Mon – Sat, 8:00 AM – 8:00 PM (GST)",
 };
+
+// Same hours in the 24-hour format Google expects. index.html's JSON-LD must match these
+// (checked by src/test/structured-data.test.js). Closed on Sunday.
+export const OPENING_HOURS = { opens: "08:00", closes: "20:00" };
 
 // TODO(owner): add the Dubai trade licence number. The footer shows it only when this is set.
 export const TRADE_LICENSE = "";

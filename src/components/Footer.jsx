@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { CONTACT, TRADE_LICENSE } from "../config/site.js";
 import { analyticsEnabled, openConsentSettings } from "../lib/analytics.js";
+import useHydrated from "../hooks/useHydrated.js";
 
 const QUICK_LINKS = [
   { to: "/", label: "Home" },
@@ -11,7 +12,10 @@ const QUICK_LINKS = [
 ];
 
 export default function Footer() {
-  const year = new Date().getFullYear();
+  // Pre-rendered HTML is built ahead of time, so during hydration use the build year (identical on
+  // server and client, set in vite.config.js), then the visitor's current year straight after.
+  const hydrated = useHydrated();
+  const year = hydrated ? new Date().getFullYear() : __BUILD_YEAR__;
 
   return (
     <footer className="site-footer">

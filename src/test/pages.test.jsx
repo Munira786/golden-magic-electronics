@@ -3,6 +3,8 @@ import axe from "axe-core";
 import { screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { renderApp } from "./renderApp.jsx";
+import { ROUTES } from "../routes.js";
+import { CONTACT } from "../config/site.js";
 
 const SITE = "https://www.goldenmagicelectronics.com";
 
@@ -57,5 +59,20 @@ describe("site-wide elements", () => {
     expect(screen.getByRole("link", { name: /skip to main content/i })).toHaveAttribute("href", "#main");
     expect(screen.getByRole("main")).toHaveAttribute("id", "main");
     expect(screen.getByRole("link", { name: /chat with us on whatsapp/i }).getAttribute("href")).toMatch(/^https:\/\/wa\.me\/971557557786\?text=/);
+  });
+});
+
+describe("support hours", () => {
+  // The business is open Mon–Sat, 8 AM – 8 PM. Promising round-the-clock support it does not
+  // offer misleads customers, so no page may claim it.
+  it.each(ROUTES.map((r) => r.path))("%s does not claim 24/7 support", (path) => {
+    const { container } = renderApp(path);
+    expect(container.textContent).not.toMatch(/24\s*[/x]\s*7|round[- ]the[- ]clock/i);
+  });
+
+  it("shows the real opening hours in the footer and on the Contact page", () => {
+    renderApp("/contact");
+    expect(screen.getByText(CONTACT.hours)).toBeInTheDocument();
+    expect(screen.getByText(CONTACT.hoursTime)).toBeInTheDocument();
   });
 });

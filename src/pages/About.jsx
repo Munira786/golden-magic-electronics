@@ -6,16 +6,16 @@ const STATS = [
   { value: "20+", label: "Years Experience" },
   { value: "500+", label: "Projects Completed" },
   { value: "200+", label: "Business Clients" },
-  { value: "24/7", label: "Technical Support" },
+  { value: "6 Days", label: "Support Every Week" },
 ];
 
-const HERO_BADGES = ["Established in 2005", "500+ Projects Delivered", "200+ Business Clients", "24/7 Technical Support"];
+const HERO_BADGES = ["Established in 2005", "500+ Projects Delivered", "200+ Business Clients", "Open Mon – Sat, 8 AM – 8 PM"];
 
 const METRICS = [
   { icon: "fa-hourglass-end", value: "20+", label: "Years of Experience", description: "Serving businesses since 2005 with trusted solutions" },
   { icon: "fa-rocket", value: "500+", label: "Projects Delivered", description: "Successfully completed across Dubai and UAE" },
   { icon: "fa-handshake", value: "200+", label: "Business Clients", description: "Trusted by leading companies across industries" },
-  { icon: "fa-headset", value: "24/7", label: "Technical Support", description: "Round-the-clock assistance for your systems" },
+  { icon: "fa-headset", value: "6 Days", label: "Support Every Week", description: "Monday to Saturday, 8:00 AM – 8:00 PM, remote and on-site" },
   { icon: "fa-map-location-dot", value: "100%", label: "UAE Coverage", description: "Available throughout the Emirates" },
 ];
 
@@ -25,20 +25,20 @@ const TECH = [
   { icon: "fa-network-wired", title: "Structured Cabling", description: "Modern cabling infrastructure that supports high-speed connectivity, future expansions, and reliable network performance.", tags: ["Cat6/Cat7", "Fiber Optics", "Cable Management"] },
   { icon: "fa-wifi", title: "Network Solutions", description: "Secure networking with firewalls, VPNs, wireless solutions, and network optimization for seamless operations.", tags: ["Firewalls", "Wireless", "VPN Security"] },
   { icon: "fa-microchip", title: "Server Infrastructure", description: "Robust server systems, virtualization, redundancy, and failover capabilities to ensure business continuity.", tags: ["Virtualization", "Redundancy", "Failover"] },
-  { icon: "fa-wand-magic-sparkles", title: "Managed IT Services", description: "Proactive monitoring, maintenance, updates, and support to keep your systems running optimally and securely.", tags: ["24/7 Monitoring", "Maintenance", "Security Updates"] },
+  { icon: "fa-wand-magic-sparkles", title: "Managed IT Services", description: "Proactive monitoring, maintenance, updates, and support to keep your systems running optimally and securely.", tags: ["Proactive Monitoring", "Maintenance", "Security Updates"] },
 ];
 
 const ADVANTAGES = [
   { icon: "fa-users-gear", title: "Experienced Technical Team", text: "Certified professionals with deep expertise in IT infrastructure, security, and enterprise solutions" },
   { icon: "fa-layer-group", title: "Enterprise-Grade Solutions", text: "Scalable, reliable systems designed to support business growth and operational complexity" },
-  { icon: "fa-bolt", title: "Fast Response & Support", text: "24/7 technical assistance ensuring minimal downtime and rapid issue resolution" },
+  { icon: "fa-bolt", title: "Fast Response & Support", text: "Quick technical assistance six days a week, keeping downtime to a minimum" },
   { icon: "fa-handshake", title: "End-to-End Services", text: "Complete solution delivery from planning and design through implementation and ongoing support" },
 ];
 
 const APPROACH = [
   { icon: "fa-user-check", title: "Understand Your Business", description: "We begin every project by understanding the client's business goals, operational challenges, and future growth plans. Taking time to listen ensures solutions align perfectly with expectations.", points: ["Comprehensive needs assessment", "Infrastructure evaluation", "Growth roadmap discussion"] },
   { icon: "fa-pencil-ruler", title: "Design Custom Solutions", description: "Our team develops practical and scalable technology solutions tailored to the client's environment and requirements. Every design is tested and validated before deployment.", points: ["Architecture planning", "System optimization", "Risk mitigation"], reverse: true },
-  { icon: "fa-gear", title: "Deploy & Provide Ongoing Support", description: "From deployment to ongoing maintenance, we ensure every solution performs reliably and continues delivering value. Our support team remains available for any adjustments or expansions.", points: ["Professional deployment", "Staff training & documentation", "24/7 technical support"] },
+  { icon: "fa-gear", title: "Deploy & Provide Ongoing Support", description: "From deployment to ongoing maintenance, we ensure every solution performs reliably and continues delivering value. Our support team remains available for any adjustments or expansions.", points: ["Professional deployment", "Staff training & documentation", "Ongoing technical support"] },
 ];
 
 const TRUST_POINTS = [

@@ -2,10 +2,9 @@
   command = "npm run build"
   publish = "dist"
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# No catch-all "/* -> /index.html" rewrite: every page is pre-rendered to its own file
+# (dist/about.html is served at /about), and any other URL gets dist/404.html with a real
+# 404 status. Adding a new page = add it to src/routes.js; the build creates its file.
 
 # Security headers for every page.
 # If you add a new third-party service (script, font, image host, iframe, API), add its domain to the

@@ -20,10 +20,20 @@ document.head.appendChild(iconStyles);
 // Loads GA4 only if a Measurement ID is configured AND the visitor accepted cookies earlier.
 initAnalytics();
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+const app = (
   <React.StrictMode>
     <BrowserRouter>
       <App />
     </BrowserRouter>
   </React.StrictMode>
 );
+
+const container = document.getElementById("root");
+if (container.hasChildNodes()) {
+  // Production: the page was pre-rendered (scripts/prerender.js), so attach React to the existing
+  // HTML instead of rebuilding it.
+  ReactDOM.hydrateRoot(container, app);
+} else {
+  // Dev server: index.html has an empty root, so render from scratch.
+  ReactDOM.createRoot(container).render(app);
+}

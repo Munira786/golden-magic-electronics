@@ -4,14 +4,14 @@ import Seo from "../components/Seo.jsx";
 import Button from "../components/Button.jsx";
 import Reveal from "../components/Reveal.jsx";
 import { SERVICES } from "../data/services.js";
-import { MAP_DIRECTIONS_URL, MAP_EMBED_URL } from "../config/site.js";
+import { CONTACT, MAP_DIRECTIONS_URL, MAP_EMBED_URL } from "../config/site.js";
 import { trackEvent } from "../lib/analytics.js";
 
 const SUPPORT_TIMELINE = [
   { icon: "fa-headset", title: "Technical Support", text: "Rapid troubleshooting and assistance for networking, server, and CCTV issues. Available remotely and on-site." },
   { icon: "fa-clipboard-check", title: "Project Consultations", text: "Expert recommendations, site surveys, and structured planning before implementation to ensure flawless execution." },
   { icon: "fa-screwdriver-wrench", title: "Maintenance Services", text: "Preventive and corrective maintenance (AMCs) to extend the lifespan of your IT infrastructure and surveillance systems." },
-  { icon: "fa-truck-fast", title: "Emergency Assistance", text: "Priority support for critical infrastructure failures to restore your business operations immediately." },
+  { icon: "fa-truck-fast", title: "Emergency Assistance", text: "Priority support for critical infrastructure failures to restore your business operations as quickly as possible." },
 ];
 
 const FAQS = [
@@ -19,8 +19,8 @@ const FAQS = [
   { q: "Do you provide UAE-wide support?", a: "Yes, while our head office is in Dubai, we provide installation and on-site support services across all Emirates including Abu Dhabi, Sharjah, and Ajman." },
   { q: "Do you offer Annual Maintenance Contracts (AMC)?", a: "Absolutely. We offer comprehensive AMCs for IT infrastructure, CCTV systems, servers, and telephony to ensure continuous operation and preventive care." },
   { q: "Can I request a site survey?", a: "Yes, we provide professional site surveys to accurately assess your networking, cabling, or surveillance requirements before delivering a finalized proposal." },
-  { q: "How quickly can support requests be handled?", a: "We prioritize urgent infrastructure issues. Depending on your SLA or AMC contract, emergency response can be immediate remotely, or within a few hours for on-site visits in Dubai." },
-  { q: "Do you provide remote technical support?", a: "Yes, for server, network configuration, and software-related issues, our team can provide secure remote technical support to resolve problems instantly." },
+  { q: "How quickly can support requests be handled?", a: "Urgent infrastructure issues are prioritized. During working hours (Monday to Saturday, 8:00 AM – 8:00 PM) we can usually start remote troubleshooting quickly; on-site response times for AMC customers are set out in their contract." },
+  { q: "Do you provide remote technical support?", a: "Yes, for server, network configuration, and software-related issues, our team can provide secure remote technical support to resolve many problems without a site visit." },
 ];
 
 const SERVICE_OPTIONS = [...SERVICES.map((service) => service.title), "Product Enquiry", "Other"];
@@ -95,7 +95,7 @@ export default function Contact() {
             <div className="hero-badges">
               <span className="hero-badge"><i className="fa-solid fa-check" aria-hidden="true"></i> 20+ Years Experience</span>
               <span className="hero-badge"><i className="fa-solid fa-check" aria-hidden="true"></i> UAE-Wide Support</span>
-              <span className="hero-badge"><i className="fa-solid fa-check" aria-hidden="true"></i> 24/7 Technical Assistance</span>
+              <span className="hero-badge"><i className="fa-solid fa-check" aria-hidden="true"></i> Open Mon – Sat, 8 AM – 8 PM</span>
             </div>
             <div className="button-row">
               <a href="#quoteForm" className="btn btn-primary">Request a Quote</a>
@@ -149,8 +149,8 @@ export default function Contact() {
             <div className="contact-card">
               <div className="contact-icon"><i className="fa-solid fa-clock" aria-hidden="true"></i></div>
               <h3 className="contact-title">Business Hours</h3>
-              <p className="contact-detail">Mon – Sat</p>
-              <p className="contact-sub">9:00 AM – 7:00 PM</p>
+              <p className="contact-detail">{CONTACT.hoursDays}</p>
+              <p className="contact-sub">{CONTACT.hoursTime}</p>
               <div className="contact-action" style={{ color: "var(--slate-500)" }}>Dubai Time (GST)</div>
             </div>
           </div>
@@ -351,7 +351,7 @@ export default function Contact() {
               <div className="cta-whatsapp-icon">
                 <i className="fa-brands fa-whatsapp" aria-hidden="true"></i>
               </div>
-              <h2>Need an Immediate Response?</h2>
+              <h2>Need a Quick Response?</h2>
               <p>Skip the form and reach out directly via WhatsApp for urgent technical support or rapid project estimations.</p>
               <div className="button-row" style={{ justifyContent: "center" }}>
                 <a href="https://wa.me/971557557786" target="_blank" rel="noreferrer" className="btn btn-primary" style={{ background: "var(--color-green)" }}>
